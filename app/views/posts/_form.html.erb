@@ -12,19 +12,19 @@
   <% end %>
   <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, :style => "width:30%" %>
   </div>
   <div class="field">
     <%= f.label :contact %><br>
-    <%= f.text_field :contact %>
+    <%= f.text_field :contact, :style => "width:30%" %>
   </div>
   <div class="field">
     <%= f.label :category %><br>
-    <%= f.select :category, Post::POST_TYPES,{},:class =>"form-control" %>
+    <%= f.select :category, Post::POST_TYPES,{},:class =>"form-control",:style => "width:30%" %>
   </div>
   <div class="field">
     <%= f.label :content %><br>
-    <%= f.text_area :content %>
+    <%= f.text_area :content, :style => "width:30%", rows:10 %>
   </div>
 
   <div class="actions">
