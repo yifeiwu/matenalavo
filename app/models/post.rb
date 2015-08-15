@@ -1,7 +1,9 @@
 class Post < ActiveRecord::Base
+	include PgSearch
 	acts_as_taggable # Alias for acts_as_taggable_on :tags
 	POST_TYPES=['Jobs', 'Cars for Sale', 'Properties for Sale', 'Things for Sale']
 
+  
 filterrific(
     default_filter_params: { sorted_by: 'created_at_desc' },
     available_filters: [
@@ -17,6 +19,13 @@ filterrific(
   # Scope definitions. We implement all Filterrific filters through ActiveRecord
   # scopes. In this example we omit the implementation of the scopes for brevity.
   # Please see 'Scope patterns' for scope implementation details.
+  
+  pg_search_scope :search_query, 
+  :against => [:content, :title], 
+  :using => [:tsearch],
+  :order_within_rank => "posts.updated_at DESC"
+=begin
+
   scope :search_query, lambda { |query|
     # Filters students whose name or email matches the query
 	return nil  if query.blank?
@@ -42,6 +51,9 @@ filterrific(
       *terms.map { |e| [e] * num_or_conditions }.flatten
     )
   }
+
+
+=end
    scope :sorted_by, lambda { |sort_option|
     # extract the sort direction from the param value.
     direction = (sort_option =~ /desc$/) ? 'desc' : 'asc'
@@ -53,7 +65,6 @@ filterrific(
     end
   }
    scope :post_category, lambda { |category_ids|
-
     where("posts.category ilike ?", category_ids)
   }
  

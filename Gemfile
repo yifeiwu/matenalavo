@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'pg_search'
 gem 'kaminari'
 gem 'filterrific'
 gem 'thin'

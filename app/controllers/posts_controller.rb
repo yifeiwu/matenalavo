@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @recent_posts = Post.all.order("created_at DESC").limit(3)
+
     @filterrific = initialize_filterrific(
       Post,
       params[:filterrific],
