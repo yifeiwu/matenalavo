@@ -39,11 +39,16 @@ GEM
     acts-as-taggable-on (3.5.0)
       activerecord (>= 3.2, < 5)
     arel (6.0.3)
+    better_errors (2.1.1)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+      rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
     byebug (5.0.0)
       columnize (= 0.9.0)
+    coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -57,6 +62,8 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.7)
     execjs (2.5.2)
+    filterrific (2.0.4)
+      rails (>= 3.1.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
@@ -68,6 +75,9 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.3)
+    kaminari (0.16.3)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     loofah (2.0.2)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -150,10 +160,13 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on (~> 3.4)
+  better_errors
   byebug
   coffee-rails (~> 4.1.0)
+  filterrific
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   pg
   rails (= 4.2.0)
   sass-rails (~> 5.0)

@@ -4,8 +4,25 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all.order(created_at: :desc)
+    @recent_posts = Post.all.order("created_at DESC").limit(3)
+    @filterrific = initialize_filterrific(
+      Post,
+      params[:filterrific],
+      :select_options => {
+        sorted_by: Post.options_for_sorted_by,
+        post_category: Post.options_for_post_category
+
+      }
+    ) or return
+    @posts = @filterrific.find.page(params[:page]).per(5)
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  
   end
+
 
   # GET /posts/1
   # GET /posts/1.json
