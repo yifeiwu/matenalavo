@@ -2,16 +2,17 @@
 
 <%= link_to 'POST AN AD', new_post_path, class:"btn btn-post btn-lg btn-block" %>
 
-<h1>Search Classifieds</h1>
+<h3>Search Classifieds</h3>
 
 <%= form_for_filterrific @filterrific do |f| %>
 <div class='well'>
-<div class='row'>
+<div class='row' align='center'>
 <div class='col-md-3'>
     Search
     <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
     <%= f.text_field(
       :search_query,
+      :placeholder => "type search terms here"
     ) %>
 </div>
 <div class='col-md-3'>

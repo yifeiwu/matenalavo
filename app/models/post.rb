@@ -2,6 +2,7 @@ class Post < ActiveRecord::Base
 	include PgSearch
 	acts_as_taggable # Alias for acts_as_taggable_on :tags
 	POST_TYPES=['Jobs', 'Cars for Sale', 'Properties for Sale', 'Things for Sale']
+	validates :title,:contact,:content, presence: true
 
   
 filterrific(
