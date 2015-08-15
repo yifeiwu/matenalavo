@@ -24,42 +24,13 @@ filterrific(
   :against => [:content, :title], 
   :using => [:tsearch],
   :order_within_rank => "posts.updated_at DESC"
-=begin
 
-  scope :search_query, lambda { |query|
-    # Filters students whose name or email matches the query
-	return nil  if query.blank?
-    # condition query, parse into individual keywords
-    terms = query.downcase.split(/\s+/)
-    # replace "*" with "%" for wildcard searches,
-    # append '%', remove duplicate '%'s
-    terms = terms.map { |e|
-      (e.gsub('*', '%') + '%').gsub(/%+/, '%')
-    }
-    # configure number of OR conditions for provision
-    # of interpolation arguments. Adjust this if you
-    # change the number of OR conditions.
-    num_or_conditions = 2
-    where(
-      terms.map {
-        or_clauses = [
-          "posts.content LIKE ?",
-          "posts.title LIKE ?",
-        ].join(' OR ')
-        "(#{ or_clauses })"
-      }.join(' AND '),
-      *terms.map { |e| [e] * num_or_conditions }.flatten
-    )
-  }
-
-
-=end
    scope :sorted_by, lambda { |sort_option|
     # extract the sort direction from the param value.
     direction = (sort_option =~ /desc$/) ? 'desc' : 'asc'
     case sort_option.to_s
     when /^created_at_/
-      order("posts.created_at #{ direction }")
+      reorder("posts.created_at #{ direction }")
     else
       raise(ArgumentError, "Invalid sort option: #{ sort_option.inspect }")
     end
