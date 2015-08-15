@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'POST AN AD', new_post_path, class:"btn btn-post btn-lg btn-block" %>
+
 
 <h3>Search Classifieds</h3>
 
@@ -44,3 +44,10 @@
 
 </div>
 
+<script>
+$('tr').click( function() {
+    window.location = $(this).find('a').attr('href');
+}).hover( function() {
+    $(this).toggleClass('hover');
+});
+</script>
