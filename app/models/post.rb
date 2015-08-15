@@ -46,8 +46,8 @@ filterrific(
   def self.options_for_sorted_by
     [
 
-      ['Posting date (newest first)', 'created_at_desc'],
-      ['Posting date (oldest first)', 'created_at_asc'],
+      ['Newest first', 'created_at_desc'],
+      ['Oldest first', 'created_at_asc'],
     ]
   end
   
