@@ -1,10 +1,14 @@
 class Post < ActiveRecord::Base
 	include PgSearch
 	acts_as_taggable # Alias for acts_as_taggable_on :tags
-	POST_TYPES=['Jobs', 'Cars for Sale', 'Properties for Sale', 'Things for Sale']
+	POST_TYPES=['Jobs', 'Cars for Sale', 'Properties for Sale', 'Things for Sale', 'Something Else']
 	validates :title,:contact,:content, presence: true
 
   
+
+  	mount_uploader :postpic, PostpicUploader
+
+
 filterrific(
     default_filter_params: { sorted_by: 'created_at_desc' },
     available_filters: [

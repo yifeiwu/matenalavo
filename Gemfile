@@ -1,7 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'pg_search'
-gem 'kaminari'
+gem 'carrierwave'
+gem 'cloudinary' #images
+gem 'pg_search' #full text search
+gem 'kaminari' #pagination
 gem 'filterrific'
 gem 'thin'
 gem 'acts-as-taggable-on', '~> 3.4'

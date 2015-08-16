@@ -22,8 +22,10 @@
 
 
 
-
-
+<% unless @post.postpic_url.nil? %>
+<hr><h4>Attached Image</h4>
+<%= image_tag @post.postpic_url(:standard) %><br /><% end %>
+<br>
 <p>
   <strong>Category:</strong>
   <%= @post.category %>
