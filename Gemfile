@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'social-share-button'
 gem 'carrierwave'
 gem 'cloudinary' #images
 gem 'pg_search' #full text search

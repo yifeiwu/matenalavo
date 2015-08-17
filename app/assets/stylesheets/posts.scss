@@ -1,20 +1,36 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.btn-post { 
-  color: #FFFFFF; 
-  background-color: #4DB7DE; 
-  border-color: #000000; 
+
+.btn-post { background-color: hsl(191, 78%, 41%) !important; 
+background-repeat: repeat-x; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b1e9f5", endColorstr="#179cba"); 
+background-image: -khtml-gradient(linear, left top, left bottom, from(#b1e9f5), to(#179cba)); 
+background-image: -moz-linear-gradient(top, #b1e9f5, #179cba); background-image: -ms-linear-gradient(top, #b1e9f5, #179cba); background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #b1e9f5), color-stop(100%, #179cba)); 
+background-image: -webkit-linear-gradient(top, #b1e9f5, #179cba); background-image: -o-linear-gradient(top, #b1e9f5, #179cba); 
+background-image: linear-gradient(#b1e9f5, #179cba); color: #fff !important; text-shadow: 0 1px 1px rgba(255, 255, 255, 0.69); 
+-webkit-font-smoothing: antialiased; 
+
+  /* BoxShadow */
+  -webkit-box-shadow: 0 8px 6px -6px #999;
+  -moz-box-shadow: 0 8px 6px -6px #999;
+  box-shadow: 0 8px 6px -6px #999;
+  align: right;
+  margin-top: 11px;
+  border: 1px solid #4db7de;
+
+
 } 
+
  
 .btn-post:hover, 
 .btn-post:focus, 
 .btn-post:active, 
 .btn-post.active, 
 .open .dropdown-toggle.btn-post { 
-  color: #FFFFFF; 
-  background-color: #134AD6; 
-  border-color: #000000; 
+  color: #ffffff; 
+  background-color: #000; 
+  background-image: none;
+
 } 
  
 .btn-post:active, 
@@ -39,10 +55,10 @@ fieldset[disabled] .btn-post:active,
 .btn-post[disabled].active, 
 fieldset[disabled] .btn-post.active { 
   background-color: #4DB7DE; 
-  border-color: #000000; 
+
 } 
  
 .btn-post .badge { 
   color: #4DB7DE; 
-  background-color: #FFFFFF; 
+  background-color: #ffffff; 
 }

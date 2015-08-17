@@ -1,4 +1,6 @@
-<div class='row'>
+
+
+
 <%= form_for(@post) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
@@ -11,7 +13,7 @@
       </ul>
     </div>
   <% end %>
-  <div class='col-md-4'>
+
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title, style: 'width: 400px', :placeholder => "Headline for your ad"  %>
@@ -32,9 +34,11 @@
 <%= f.file_field :postpic %>
 <hr>
 
-  <div class="actions">
-    <%= f.submit "Post my Ad" %>
+  <div class="actions" align="center">
+  <%= link_to 'Back', posts_path, class: "btn btn-large btn-default" %>
+    <%= f.submit "Post my Ad", class: "btn btn-large btn-primary"%>
   </div>
-  </div>
+
 <% end %>
-</div>
+
+

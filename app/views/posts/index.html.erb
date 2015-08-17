@@ -5,25 +5,33 @@
 <h3>Search Classifieds</h3>
 
 <%= form_for_filterrific @filterrific do |f| %>
-<div class='well'>
-<div class='row' align='center'>
-<div class='col-md-3'>
+<div class='well well-sm'>
+<div class='row' >
+
+  <div class='col-md-3' align='center'>
+    Sort by
+    <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
+  </div>
+
+<div class='col-md-3' align='center'>
+    Category
+    <%= f.select(:post_category, @filterrific.select_options[:post_category]) %>
+  </div>
+
+
+<div class='col-md-4' align='center'>
     Search
     <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
     <%= f.text_field(
       :search_query,
-      :placeholder => "type search terms here"
+      :placeholder => "type search terms here",
+      class: 'filterrific-periodically-observed',
     ) %>
+
 </div>
-<div class='col-md-3'>
-    Category
-    <%= f.select(:post_category, @filterrific.select_options[:post_category]) %>
-  </div>
-  <div class='col-md-3'>
-    Sorted by
-    <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
-  </div>
-  <div class='col-md-3'>
+
+
+  <div class='col-md-1' align='right'>
     <%= link_to(
       'Reset filters',
       reset_filterrific_url, class:"btn btn-sm btn-danger"
@@ -31,6 +39,7 @@
   </div>
   </div>
   </div>
+
   <%# add an automated spinner to your form when the list is refreshed %>
   <%= render_filterrific_spinner %>
 <% end %>
@@ -45,9 +54,11 @@
 </div>
 
 <script>
-$('tr').click( function() {
+
+$('tr').not('thead tr').click( function() {
     window.location = $(this).find('a').attr('href');
 }).hover( function() {
     $(this).toggleClass('hover');
 });
+
 </script>
