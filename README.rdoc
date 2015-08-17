@@ -1,28 +1,33 @@
-== README
+#Mate Na Lavo - A Free Classifieds Ad Platform 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**The goal of the application is to allow users to post ads and to be able to query relevant ones**
 
-Things you may want to cover:
+##Main Features
 
-* Ruby version
+1. Allows free posting of ads with picture upload
+2. Index and allow searching of ads uploaded from additional local sources
 
-* System dependencies
+###Built with 
 
-* Configuration
+* Bootstrap
+* JQuery
+* PostgreSQL
+* Rails 4
+* Heroku
 
-* Database creation
+###Featured Gems
+* Filterrific(Filtering and sorting)
+* Kaminari(Pagination)
+* pg-search(Full Text Searching)
+* Nokogiri(For ad aggregation)
+* Carrierwave/Cloudinary(Pic uploads and hosting)
 
-* Database initialization
+####A live demo of this project can be seen here https://matenalavo.herokuapp.com/
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+####Known limitations
+Need intelligent parsing of ads from local sources. 
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+
+
