@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mate Na Lavo - Free Classifieds For Fiji</title>
+
+
+<title>
+  <%- if content_for? :page_title -%>
+    <%= yield :page_title %> .. Mate Na Lavo Fiji Classifieds
+    <% else %>
+    Mate Na Lavo Fiji Classifieds
+  <% end %>
+</title>
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  
+  
   <meta name="description" content="Fiji's biggest free classifieds website. Whether you're in Suva, Nadi, Lautoka or Savusavu, we help you find a new car, a job, or a new house today! ">
   <%= csrf_meta_tags %>
   <meta name="keywords" content="Fiji, Viti Levu, Vanua Levu, free, classifieds, vacancy, for sale, jobs, houses, land, cars, autos" />
@@ -42,7 +53,7 @@
 
     </nav>
 </div>
-<div class="container">
+<div class="container-fluid">
 
 <%= yield %>
 </div>

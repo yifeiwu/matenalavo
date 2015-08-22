@@ -80,4 +80,15 @@ vertical-align: bottom;
 margin-right:2px;
 }
 
+@media screen and (max-width: 1366px) {
+        table.listings tr td {
+  font-size: 1.1em;
+  }
+}
+
+@media screen and (max-width: 568px) {
+        table.listings tr td {
+  font-size: 1.4em;
+  }
+}
 
