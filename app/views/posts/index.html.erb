@@ -1,64 +1,103 @@
 <p id="notice"><%= notice %></p>
 
-
-
-<h3>Search Classifieds</h3>
-
 <%= form_for_filterrific @filterrific do |f| %>
-<div class='well well-sm'>
-<div class='row' >
 
-  <div class='col-md-3' align='center'>
-    Sort by
-    <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
+<div class="well">
+  <div class='row' >
+    <div class='col-md-8-offset-4' align='center'>
+      <span class="input-group-btn">
+      <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+      <%= f.text_field(
+        :search_query,
+        :placeholder => "What do you want to find?",
+        class: 'filterrific-periodically-observed input-lg focus',
+        id: 'search-field'
+      )%>
+      <button id="adv-button" type="button" class="btn btn-default btn-lg"><span class="caret"></span></button>
+      <%= button_tag(type: 'submit', class: "btn btn-primary btn-lg", id: "search-button") do %>
+      <span>Search</span>
+      <% end %>
+      </span>
+    </div>
   </div>
 
-<div class='col-md-3' align='center'>
-    Category
-    <%= f.select(:post_category, @filterrific.select_options[:post_category]) %>
-  </div>
 
 
-<div class='col-md-4' align='center'>
-    Search
-    <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
-    <%= f.text_field(
-      :search_query,
-      :placeholder => "type search terms here",
-      class: 'filterrific-periodically-observed',
-    ) %>
+  <div id='adv-options'>
+    <div align="center"> <h4>Search Filters</h4></div>
+      <div class='row'>
 
-</div>
+        <div class='col-md-3' align='center'>
+          <p>Sort By</p>
+          <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
+        </div>
+
+        <div class='col-md-3' align='center'>
+          <p>Category</p>
+          <%= f.select(:post_category, @filterrific.select_options[:post_category]) %>
+        </div>
+
+        <div class='col-md-3' align='center'>
+          <p>When Posted</p>
+          <%= f.select(:post_date, @filterrific.select_options[:post_date]) %>
+        </div>
 
 
-  <div class='col-md-1' align='right'>
-    <%= link_to(
-      'Reset filters',
-      reset_filterrific_url, class:"btn btn-sm btn-danger"
-    ) %>
-  </div>
-  </div>
-  </div>
+        <div class='col-md-3' align='center'>
+          <p>Reset Search Filters</p>
+          <%= link_to(
+            'Reset',
+            reset_filterrific_url, class:"btn btn-sm btn-danger"
+          ) %>
+        </div>
+   </div>
+  </div><!-- hidden div -->
+</div> <!-- row -->
+
+
 
   <%# add an automated spinner to your form when the list is refreshed %>
   <%= render_filterrific_spinner %>
-<% end %>
+<% end %><!-- form -->
 
 <div id="filterrific_results">
 <%= render(
   partial: 'posts/list',
   locals: { posts: @posts }
 ) %>
-
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
 
 <script>
 
+/*allow clicking on the result rows*/
 $('tr').not('thead tr').click( function() {
     window.location = $(this).find('a').attr('href');
 }).hover( function() {
     $(this).toggleClass('hover');
 });
+/*focus on the search bar*/ 
+window.onload = function() {
+  var input = document.getElementById("search-field").focus();
+  $("#adv-options").hide();
+}
 
-</script>
+
+ /*advanced options*/
+$( "#adv-button" ).click(function() {
+  $( "#adv-options" ).stop().slideToggle( "fast", function() {
+    return false;
+  });
+});
+
+  </script>

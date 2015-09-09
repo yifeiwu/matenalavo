@@ -15,7 +15,7 @@ background-image: linear-gradient(#b1e9f5, #179cba); color: #fff !important; tex
   -moz-box-shadow: 0 8px 6px -6px #999;
   box-shadow: 0 8px 6px -6px #999;
   align: right;
-  margin-top: 10px;
+  margin-top: 11px;
   border: 1px solid #4db7de;
 
 
@@ -62,3 +62,17 @@ fieldset[disabled] .btn-post.active {
   color: #4DB7DE; 
   background-color: #ffffff; 
 }
+
+/*For result rows*/
+tr.hover {
+   cursor: pointer;
+}
+
+#search-field {
+border-radius: 0;
+border: none;
+width: 30%;
+vertical-align: bottom;
+}
+
+

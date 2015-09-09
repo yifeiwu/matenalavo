@@ -16,9 +16,7 @@
  *= require_self
  */
 
-.well {
-vertical-align: center;
-}
+
 
 
 tr.hover {

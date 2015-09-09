@@ -14,8 +14,8 @@ filterrific(
     available_filters: [
       :sorted_by,
       :search_query,
-      :post_category
-
+      :post_category,
+      :post_date
     ]
   )
 
@@ -46,13 +46,14 @@ filterrific(
    scope :post_category, lambda { |category_ids|
     where("posts.category ilike ?", category_ids)
   }
- 
+   scope :post_date, lambda { |post_date|
+    where('posts.created_at >= ?', post_date)
+  }
 
   # This method provides select options for the `sorted_by` filter select input.
   # It is called in the controller as part of `initialize_filterrific`.
   def self.options_for_sorted_by
     [
-
       ['Newest first', 'created_at_desc'],
       ['Oldest first', 'created_at_asc'],
     ]
@@ -65,8 +66,14 @@ filterrific(
       		['Properties for Sale', 'Properties for Sale'],
       		['Job Vacancies', 'Jobs'],
       		['Something Else', 'Something Else']
-
     	]
+    end
+  def self.options_for_post_date
+      [   ['Any' , ''],
+          ['Last week', Time.now - 7.day],
+          ['Last 2 weeks', Time.now - 14.day],
+          ['Last 30 days', Time.now - 30.day],
+      ]
     end
 
 end

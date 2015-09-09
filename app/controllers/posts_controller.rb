@@ -10,7 +10,8 @@ class PostsController < ApplicationController
       params[:filterrific],
       :select_options => {
         sorted_by: Post.options_for_sorted_by,
-        post_category: Post.options_for_post_category
+        post_category: Post.options_for_post_category,
+        post_date: Post.options_for_post_date
 
       }
     ) or return

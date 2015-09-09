@@ -62,3 +62,17 @@ fieldset[disabled] .btn-post.active {
   color: #4DB7DE; 
   background-color: #ffffff; 
 }
+
+/*For result rows*/
+tr.hover {
+   cursor: pointer;
+}
+
+#search-field {
+border-radius: 0;
+border: none;
+width: 30%;
+vertical-align: bottom;
+}
+
+
