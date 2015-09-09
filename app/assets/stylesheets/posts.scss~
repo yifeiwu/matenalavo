@@ -14,9 +14,13 @@ background-image: linear-gradient(#b1e9f5, #179cba); color: #fff !important; tex
   -webkit-box-shadow: 0 8px 6px -6px #999;
   -moz-box-shadow: 0 8px 6px -6px #999;
   box-shadow: 0 8px 6px -6px #999;
-  align: right;
-  margin-top: 11px;
-  border: 1px solid #4db7de;
+  
+
+align: right;
+margin-top: 11px;
+margin-right: 11px;
+width: 200px;
+border: 1px solid #4db7de;
 
 
 } 
@@ -73,6 +77,7 @@ border-radius: 0;
 border: none;
 width: 30%;
 vertical-align: bottom;
+margin-right:50px;
 }
 
 

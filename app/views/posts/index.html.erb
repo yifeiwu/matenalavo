@@ -86,11 +86,16 @@ $('tr').not('thead tr').click( function() {
 }).hover( function() {
     $(this).toggleClass('hover');
 });
-/*focus on the search bar*/ 
-window.onload = function() {
+
+/*focus on the search bar and hide options on load*/ 
+var ready;
+ready = function() {
   var input = document.getElementById("search-field").focus();
   $("#adv-options").hide();
-}
+};
+$(document).ready(ready);
+$(document).on('page:load', ready);
+
 
 
  /*advanced options*/
