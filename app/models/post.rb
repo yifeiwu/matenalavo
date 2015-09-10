@@ -6,7 +6,7 @@ class Post < ActiveRecord::Base
 
   
 
-  	mount_uploader :postpic, PostpicUploader
+  mount_uploader :postpic, PostpicUploader
 
 
 filterrific(
@@ -52,6 +52,22 @@ filterrific(
 
   # This method provides select options for the `sorted_by` filter select input.
   # It is called in the controller as part of `initialize_filterrific`.
+
+
+    def similar_posts
+    query= "SELECT p.id, ts_rank_cd(to_tsvector('english', p.content), replace(plainto_tsquery(original.content)::text, ' & ', ' | ')::tsquery) AS similarity
+            FROM posts p,
+            (SELECT content, id FROM posts WHERE id = ? LIMIT 1) AS original
+            WHERE p.id != original.id
+            ORDER BY similarity DESC
+            LIMIT 3;"
+
+    sim_ids = Post.find_by_sql( [query,self.id] )
+    similar_array = Post.find(sim_ids)
+    return similar_array
+    end
+
+
   def self.options_for_sorted_by
     [
       ['Newest first', 'created_at_desc'],
