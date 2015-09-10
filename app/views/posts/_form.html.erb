@@ -16,19 +16,20 @@
 
   <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_field :title, style: 'width: 400px', :placeholder => "Headline for your ad"  %>
+    <%= f.text_field :title,  style: 'width: 100%', :placeholder => "Headline for your ad"  %>
   </div>
   <div class="field">
     <%= f.label :contact %><br>
-    <%= f.text_field :contact, style: 'width: 400px', :placeholder => "Phone and/or email address"  %>
+    <%= f.text_field :contact, style: 'width: 100%', :placeholder => "Phone and/or email address"  %>
   </div>
   <div class="field">
     <%= f.label :category %><br>
-    <%= f.select :category, Post::POST_TYPES,{},:class =>"form-control", style: 'width: 400px'  %>
+    <%= f.select :category, Post::POST_TYPES,{},:class =>"form-control", style: 'width: 100%'  %>
   </div>
   <div class="field">
     <%= f.label :content %><br>
-    <%= f.text_area :content, style: 'width: 400px' , rows:10, :placeholder => "Your main content goes here. Please include details such as your location(Suva,Nadi,Lautoka,SavuSavu etc)"%>
+    <%= f.text_area :content ,class: "tinymce", rows:10, :placeholder => "Your main content goes here. Please include details such as your location(Suva,Nadi,Lautoka,SavuSavu etc)"%>
+
   </div>
 <hr><h5>Upload a picture</h5>
 <%= f.file_field :postpic %>
@@ -40,5 +41,6 @@
   </div>
 
 <% end %>
+<%= tinymce %>
 
 

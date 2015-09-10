@@ -14,9 +14,6 @@
 
   <tbody>
 
-
-
-
     <% posts.each do |post| %>
       <tr>
         <td><%= (post.created_at+12*60*60).strftime('%H:%M %a %d %b %Y') %> </td>
@@ -25,11 +22,11 @@
       </tr>
     <% end %>
 
-
-
-
-
 </tbody>
 </table>
-<%= paginate @posts %>
+
+    <div id="paginator">
+      <%= paginate @posts, :remote => true %>
+    </div>
+
 

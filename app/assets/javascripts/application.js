@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require tinymce
 //= require social-share-button
 //= require jquery_ujs
 //= require turbolinks

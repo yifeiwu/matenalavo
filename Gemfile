@@ -1,13 +1,14 @@
 source 'https://rubygems.org'
 
 gem 'social-share-button'
+gem 'tinymce-rails'
 gem 'carrierwave'
 gem 'cloudinary' #images
 gem 'pg_search' #full text search
 gem 'kaminari' #pagination
 gem 'filterrific'
 gem 'thin'
-gem 'acts-as-taggable-on', '~> 3.4'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record
