@@ -14,44 +14,44 @@
         class: 'filterrific-periodically-observed input-lg focus',
         id: 'search-field'
       )%>
-      <button id="adv-button" type="button" class="btn btn-default btn-lg"><span class="caret"></span></button>
+      <button id="adv-button" type="button" class="btn btn-default btn-lg"><span> &#x2699 </span></button>
       <%= button_tag(type: 'submit', class: "btn btn-primary btn-lg", id: "search-button") do %>
       <span>Search</span>
       <% end %>
       </span>
     </div>
   </div>
+  </div>
 
 
 
-  <div id='adv-options'>
+  <div id='adv-options' class='col-xs-12 col-md-8 col-md-offset-2' align='center'>
     <div align="center"> <h4>Search Filters</h4></div>
       <div class='row'>
 
-        <div class='col-md-3' align='center'>
+        <div class='col-xs-12 col-md-3' align='center'>
           <p>Sort By</p>
           <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
         </div>
 
-        <div class='col-md-3' align='center'>
+        <div class='col-xs-12 col-md-3' align='center'>
           <p>Category</p>
           <%= f.select(:post_category, @filterrific.select_options[:post_category]) %>
         </div>
 
-        <div class='col-md-3' align='center'>
+        <div class='col-xs-12 col-md-3' align='center'>
           <p>When Posted</p>
           <%= f.select(:post_date, @filterrific.select_options[:post_date]) %>
         </div>
 
 
-        <div class='col-md-3' align='center'>
+        <div class='col-xs-12 col-md-3' align='center'>
           <p>Reset Search Filters</p>
           <%= link_to(
             'Reset',
             reset_filterrific_url, class:"btn btn-sm btn-danger"
           ) %>
         </div>
-   </div>
   </div><!-- hidden div -->
 </div> <!-- row -->
 
