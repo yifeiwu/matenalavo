@@ -27,6 +27,9 @@
 ####Known limitations
 Need intelligent parsing of ads from local sources. 
 
+####Misc Notes
+rake delete:old_records to remove posts older than 60 days
+
 
 
 

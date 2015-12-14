@@ -3,107 +3,126 @@
 <%= form_for_filterrific @filterrific do |f| %>
 
 
-  <div class='row' >
-    <div class='col-xs-12 col-md-8 col-md-offset-2' align='center'>
-    <div class="well">
+<div class='row' >
+  <div class='col-md-8 col-md-offset-2 hidden-xs hidden-sm' align='center'>
+    <div class="well" id="searchbar">
       <span class="input-group-btn">
-      <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
-      <%= f.text_field(
-        :search_query,
-        :placeholder => "What do you want to find?",
-        class: 'filterrific-periodically-observed input-lg focus',
-        id: 'search-field'
-      )%>
-      <button id="adv-button" type="button" class="btn btn-default btn-lg"><span> &#x2699 </span></button>
-      <%= button_tag(type: 'submit', class: "btn btn-primary btn-lg", id: "search-button") do %>
-      <span>Search</span>
-      <% end %>
-      </span>
-    </div>
-  </div>
-  </div>
-
-
-
-  <div id='adv-options' class='col-xs-12 col-md-8 col-md-offset-2' align='center'>
-    <div align="center"> <h4>Search Filters</h4></div>
-      <div class='row'>
-
-        <div class='col-xs-12 col-md-3' align='center'>
-          <p>Sort By</p>
-          <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
+        <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+        <%= f.text_field(
+          :search_query,
+          :placeholder => "What do you want to find?",
+          class: 'filterrific-periodically-observed input-lg focus',
+            id: 'search-field'
+            )%>
+            <button id="adv-button" type="button" class="btn btn-default btn-lg"><i class="fa fa-cogs"></i></button>
+            <%= button_tag(type: 'submit', class: "btn btn-primary btn-lg", id: "search-button") do %>
+            <span>Search</span>
+            <% end %>
+          </span>
         </div>
+      </div>
 
-        <div class='col-xs-12 col-md-3' align='center'>
-          <p>Category</p>
-          <%= f.select(:post_category, @filterrific.select_options[:post_category]) %>
-        </div>
-
-        <div class='col-xs-12 col-md-3' align='center'>
-          <p>When Posted</p>
-          <%= f.select(:post_date, @filterrific.select_options[:post_date]) %>
-        </div>
-
-
-        <div class='col-xs-12 col-md-3' align='center'>
-          <p>Reset Search Filters</p>
-          <%= link_to(
-            'Reset',
-            reset_filterrific_url, class:"btn btn-sm btn-danger"
-          ) %>
-        </div>
-  </div><!-- hidden div -->
-</div> <!-- row -->
-
+      <div class='col-sm-12 hidden-md hidden-lg' align='center'>
+        <div class="well" id="searchbar">
+          <span class="input-group-btn">
+            <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+            <%= f.text_field(
+              :search_query,
+              :placeholder => "What do you want to find?",
+              class: 'filterrific-periodically-observed input-lg focus',
+                id: 'search-field'
+                )%>
+                <hr>
+                <%= button_tag(type: 'submit', class: "btn btn-primary btn-sm", id: "search-button") do %>
+                <span>Search</span>
+                <% end %>
+              </span>
+            </div>
+          </div>
+        </div><!--SEARCHBAR ROW-->
 
 
-  <%# add an automated spinner to your form when the list is refreshed %>
-  <%= render_filterrific_spinner %>
-<% end %><!-- form -->
-
-<div id="filterrific_results">
-<%= render(
-  partial: 'posts/list',
-  locals: { posts: @posts }
-) %>
-</div>
+<!--ADVANCED OPTIONS-->
+        <div id='adv-options'>
+          <div class='row col-md-8 col-md-offset-2' align='center'>
+            <div align="center"> <h4>Search Filters</h4></div>
 
 
+            <div class='col-md-3' align='center'>
+              <p>Sort By</p>
+              <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
+            </div>
+
+            <div class='col-md-3' align='center'>
+              <p>Category</p>
+              <%= f.select(:post_category, @filterrific.select_options[:post_category]) %>
+            </div>
+
+            <div class='col-md-3' align='center'>
+              <p>When Posted</p>
+              <%= f.select(:post_date, @filterrific.select_options[:post_date]) %>
+            </div>
 
 
-
-
-
-
-
-
-
-
-<script>
-
-/*allow clicking on the result rows*/
-$('tr').not('thead tr').click( function() {
-    window.location = $(this).find('a').attr('href');
-}).hover( function() {
-    $(this).toggleClass('hover');
-});
-
-/*focus on the search bar and hide options on load*/ 
-var ready;
-ready = function() {
-  var input = document.getElementById("search-field").focus();
-  $("#adv-options").hide();
-};
-$(document).ready(ready);
-$(document).on('page:load', ready);
+            <div class='col-md-3' align='center'>
+              <p>Reset Search Filters</p>
+              <%= link_to(
+                'Reset',
+                reset_filterrific_url, class:"btn btn-sm btn-danger"
+                ) %>
+              </div>
+            </div><!-- row -->
+          </div><!-- hidden div -->
 
 
 
- /*advanced options*/
-$( "#adv-button" ).click(function() {
-  $( "#adv-options" ).stop().slideToggle( "fast", function() {
-    return false;
-  });
-});
+          <%# add an automated spinner to your form when the list is refreshed %>
+          <%= render_filterrific_spinner %>
+          <% end %><!-- form -->
 
-  </script>
+          <div id="filterrific_results">
+            <%= render(
+              partial: 'posts/list',
+              locals: { posts: @posts }
+              ) %>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+            <script>
+
+              /*allow clicking on the result rows*/
+              $('tr').not('thead tr').click( function() {
+                window.location = $(this).find('a').attr('href');
+              }).hover( function() {
+                $(this).toggleClass('hover');
+              });
+
+              /*focus on the search bar and hide options on load*/ 
+              var ready;
+              ready = function() {
+                var input = document.getElementById("search-field").focus();
+                $("#adv-options").hide();
+              };
+              $(document).ready(ready);
+              $(document).on('page:load', ready);
+
+
+
+              /*advanced options*/
+              $( "#adv-button" ).click(function() {
+                $( "#adv-options" ).stop().slideToggle( "fast", function() {
+                  return false;
+                });
+              });
+
+            </script>
