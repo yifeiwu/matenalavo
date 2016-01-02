@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 
 gem 'social-share-button'
-gem 'tinymce-rails'
 gem 'carrierwave'
 gem 'cloudinary' #images
 gem 'pg_search' #full text search
 gem 'kaminari' #pagination
 gem 'filterrific'
 gem 'thin'
+gem 'rails_12factor', group: :production
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'

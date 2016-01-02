@@ -99,14 +99,6 @@
 
 
             <script>
-
-              /*allow clicking on the result rows*/
-              $('tr').not('thead tr').click( function() {
-                window.location = $(this).find('a').attr('href');
-              }).hover( function() {
-                $(this).toggleClass('hover');
-              });
-
               /*focus on the search bar and hide options on load*/ 
               var ready;
               ready = function() {

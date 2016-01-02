@@ -1,31 +1,72 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-
-/*For result rows*/
-tr.hover {
-   cursor: pointer;
+.form-horizontal {
+background-color: #fafafa;
+border-radius: 10px;
+padding:10px;
+border: 1px solid #999;
+border: inset 1px solid #333;
+margin:auto;
+position:relative;
 }
 
 #search-field {
 border-radius: 0;
 border: none;
+width: 45%;
 vertical-align: bottom;
 margin-right:5px;
 }
 
-@media screen and (max-width: 1366px) {
-  table.listings tr td {
-  font-size: 1.1em;
-  }
-
+.page , .prev , .next, .last, .first { 
+border-radius: 5px;
+padding: 4px;
+border: 1px solid #999;
+margin: 5px;
 }
+.current {
+border: none;
+}
+
+.Things {
+	background-color: #4AA3A3;
+}
+.Cars {
+	background-color: #0F9999;
+}
+.Properties {
+	background-color: #008B8B;
+}
+.Jobs {
+	background-color: #FFFF73;
+}
+
+@media screen and (max-width: 1366px) {
+
+.list-group-item-heading {
+font-size: 1.3em;
+line-height: 1.3em;	
+}
+
+.page , .prev , .next, .last, .first { 
+font-size: 1.2em;
+line-height: 1.2em;
+}
+}
+
+
 
 @media screen and (max-width: 568px) {
-  table.listings tr td {
-  font-size: 1.4em;
-  }
+.list-group-item-heading {
+font-size: 1.5em;
+line-height: 1.5em;
+}
+.page , .prev , .next, .last, .first { 
+font-size: 1.4em;
+line-height: 2em;
+}
 
 }
+
 

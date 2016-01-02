@@ -12,10 +12,9 @@ class PostsController < ApplicationController
         sorted_by: Post.options_for_sorted_by,
         post_category: Post.options_for_post_category,
         post_date: Post.options_for_post_date
-
       }
     ) or return
-    @posts = @filterrific.find.page(params[:page]).per(7)
+    @posts = @filterrific.find.page(params[:page]).per(6)
 
     respond_to do |format|
       format.html

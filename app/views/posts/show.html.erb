@@ -12,12 +12,11 @@ end %>
   <%= @post.title %></strong>
   </h3>
 
-
-
 <p>
   <strong>Contact Info:</strong>
   <%= @post.contact %>
 </p>
+<p><i>Posted <%= (@post.created_at+12*60*60).strftime('%H:%M %a %d %b %Y') %></i></p>
 <hr>
 <p>
   <strong></strong>
