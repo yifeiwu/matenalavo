@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  get '/sitemap' => 'sitemap#index'
   get '/news' => 'static_pages#news'
   get '/about' => 'static_pages#about'
 

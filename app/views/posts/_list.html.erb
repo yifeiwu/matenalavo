@@ -2,22 +2,23 @@
 
 <div class='col-xs-12 col-s-12 col-md-10 col-md-offset-1' align='center'>
 
-<div class="list-group">
+	<div class="list-group" style="clear:both">
 
-<% posts.each do |post| %>
-<div class='col-md-6'>
-  <a href="<%= post_path(post) %>" class="list-group-item <%= post.category.partition(" ").first %>">
-    <h6 class="list-group-item-heading"> <%= post.title %></h6>
-    <p class="list-group-item-text"><%= post.category %> posting created <%= time_ago_in_words(post.created_at)%> ago</p>
-  </a>
+		<% posts.each do |post| %>
+		<div class='col-md-6'>
+			<a href="<%= post_path(post) %>" class="list-group-item <%= post.category.partition(" ").first %>">
+				<h6 class="list-group-item-heading"> <%= post.title %></h6>
+				<p class="list-group-item-text"><%= post.category %> posting created <%= time_ago_in_words(post.created_at)%> ago</p>
+			</a>
+		</div>
+		<%end%>
+
+
+	</div>
 </div>
-<%end%>
-
-</div>
-
-    <div class='row' id="paginator">
-      <%= paginate @posts, :remote => true %>
-    </div>
-
+<div class='col-xs-12 col-s-12 col-md-10 col-md-offset-1' align='center'>
+	<div class='row' id="paginator">
+		<%= paginate @posts, :remote => true %>
+	</div>
 </div>
 
