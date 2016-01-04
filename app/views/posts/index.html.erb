@@ -1,16 +1,17 @@
 <p id="notice"><%= notice %></p>
 
+
+
 <%= form_for_filterrific @filterrific do |f| %>
-
-
 <div class='row' >
-  <div class='col-md-8 col-md-offset-2 hidden-xs hidden-sm' align='center'>
-    <div class="well" id="searchbar">
+  <div class='col-md-10 col-md-offset-1 col-sm-12 col-xs-12' align='center'>
+
+    <div id="searchbar">
       <span class="input-group-btn">
         <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
         <%= f.text_field(
           :search_query,
-          :placeholder => "What do you want to find?",
+          :placeholder => "Type here to find!",
           class: 'filterrific-periodically-observed input-lg focus',
             id: 'search-field'
             )%>
@@ -21,31 +22,13 @@
           </span>
         </div>
       </div>
-
-      <div class='col-sm-12 hidden-md hidden-lg' align='center'>
-        <div class="well" id="searchbar">
-          <span class="input-group-btn">
-            <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
-            <%= f.text_field(
-              :search_query,
-              :placeholder => "What do you want to find?",
-              class: 'filterrific-periodically-observed input-lg focus',
-                id: 'search-field'
-                )%>
-                <hr>
-                <%= button_tag(type: 'submit', class: "btn btn-primary btn-sm", id: "search-button") do %>
-                <span>Search</span>
-                <% end %>
-              </span>
-            </div>
-          </div>
-        </div><!--SEARCHBAR ROW-->
+    </div><!--SEARCHBAR ROW-->
 
 
 <!--ADVANCED OPTIONS-->
         <div id='adv-options'>
-          <div class='row col-md-8 col-md-offset-2' align='center'>
-            <div align="center"> <h4>Search Filters</h4></div>
+          <div class='row col-md-10 col-md-offset-1' align='center'>
+            <div align="center"> <h4>Classifieds Filters</h4></div>
 
 
             <div class='col-md-3' align='center'>
@@ -59,7 +42,7 @@
             </div>
 
             <div class='col-md-3' align='center'>
-              <p>When Posted</p>
+              <p>Recent</p>
               <%= f.select(:post_date, @filterrific.select_options[:post_date]) %>
             </div>
 
