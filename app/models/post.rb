@@ -3,6 +3,8 @@ class Post < ActiveRecord::Base
 
 	POST_TYPES=['Jobs', 'Cars for Sale', 'Properties for Sale', 'Things for Sale', 'Something Else']
 	validates :title,:contact,:content, presence: true
+  validates :title, length: { maximum: 40 }
+
 
 
 

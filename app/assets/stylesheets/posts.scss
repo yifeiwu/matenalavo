@@ -12,7 +12,6 @@ position:relative;
 }
 
 #searchbar {
-margin:auto;
 margin-bottom:20px;
 }
 
@@ -32,6 +31,11 @@ margin: 5px;
 }
 .current {
 border: none;
+}
+
+.list-group-item {
+	padding : 2px;
+	margin: 2px;
 }
 
 .Things {
@@ -74,6 +78,9 @@ line-height: 1.5em;
 font-size: 1.4em;
 line-height: 1.5em;
 display:block;
+}
+#search-button{
+	display:block;
 }
 
 }
