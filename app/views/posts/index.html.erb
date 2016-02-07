@@ -1,20 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 
-
 <%= form_for_filterrific @filterrific do |f| %>
 <div class='row' >
-  <div class='col-md-10 col-md-offset-1 col-sm-12 col-xs-12' align='center'>
+  <div class='col-md-8 col-md-offset-2 col-sm-12 col-xs-12' align='center'>
 
-    <div id="searchbar">
-      <span class="input-group-btn">
+    <div id="searchbar" class="input-group">
+      
         <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
         <%= f.text_field(
           :search_query,
           :placeholder => "Search here! e.g. Suva sales, Lautoka toyota, beach, service, manager",
-          class: 'filterrific-periodically-observed input-lg focus',
+          class: 'filterrific-periodically-observed form-control input-lg focus',
             id: 'search-field'
             )%>
+            <span class="input-group-btn">
             <button id="adv-button" type="button" class="btn btn-default btn-lg"><i class="fa fa-cogs"></i></button>
             <%= button_tag(type: 'submit', class: "btn btn-primary btn-lg", id: "search-button") do %>
             <span>Search</span>
@@ -27,7 +27,7 @@
 
 <!--ADVANCED OPTIONS-->
         <div id='adv-options'>
-          <div class='row col-md-10 col-md-offset-1' align='center'>
+          <div class='row col-md-8 col-md-offset-2' align='center'>
             <div align="center"> <h4>Classifieds Filters</h4></div>
 
 
@@ -69,13 +69,6 @@
               locals: { posts: @posts }
               ) %>
             </div>
-
-
-
-
-
-
-
 
 
 

@@ -14,7 +14,7 @@ class PostsController < ApplicationController
         post_date: Post.options_for_post_date
       }
     ) or return
-    @posts = @filterrific.find.page(params[:page]).per(8)
+    @posts = @filterrific.find.page(params[:page]).per(6)
 
     respond_to do |format|
       format.html

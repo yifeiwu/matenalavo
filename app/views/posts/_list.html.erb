@@ -7,7 +7,7 @@
 		<% posts.each do |post| %>
 
 			<a href="<%= post_path(post) %>" class="list-group-item <%= post.category.partition(" ").first %>">
-				<h6 class="list-group-item-heading"> <%= post.title %></h6>
+				<h5 class="list-group-item-heading"> <%= post.title %></h5>
 				<p class="list-group-item-text"><%= post.category %> posting created <%= time_ago_in_words(post.created_at)%> ago</p>
 			</a>
 		<%end%>

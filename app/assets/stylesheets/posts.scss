@@ -15,13 +15,7 @@ position:relative;
 margin-bottom:20px;
 }
 
-#search-field {
-border-radius: 0;
-border: none;
-width: 50%;
-vertical-align: bottom;
-margin-right:5px;
-}
+
 
 .page , .prev , .next, .last, .first { 
 border-radius: 5px;
@@ -34,8 +28,9 @@ border: none;
 }
 
 .list-group-item {
-	padding : 2px;
-	margin: 2px;
+	padding : 3px;
+	margin: 1px;
+	border-radius: 5px;
 }
 
 .Things {
@@ -79,7 +74,8 @@ font-size: 1.4em;
 line-height: 1.5em;
 display:block;
 }
-#search-button{
+.input-group-btn{
+	clear:both;
 	display:block;
 }
 
