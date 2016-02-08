@@ -48,27 +48,37 @@ border: none;
 
 @media screen and (max-width: 1366px) {
 
-.list-group-item-heading {
-font-size: 1.3em;
-line-height: 1.3em;	
+p {
+font-size: 1.3em !important;
+padding: 2px;
 }
 
-.page , .prev , .next, .last, .first { 
-font-size: 1.2em;
-line-height: 1.2em;
+
+
+td, tr {
+font-size: 1.3em !important;
+padding: 2px;
 }
 }
 
 
 
 @media screen and (max-width: 568px) {
-.list-group-item-heading {
-font-size: 1.5em;
-line-height: 1.5em;
-}
+
 .page {
 	display:none
 }
+
+p {
+font-size: 1.5em !important;
+padding: 3px;
+}
+
+td, tr {
+font-size: 1.4em !important;
+padding: 4px;
+}
+
 .current, .prev , .next, .last, .first { 
 font-size: 1.4em;
 line-height: 1.5em;

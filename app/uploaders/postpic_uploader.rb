@@ -7,7 +7,7 @@ class PostpicUploader < CarrierWave::Uploader::Base
   cloudinary_transformation :quality => 75
   
   version :standard do
-    process :resize_to_fill => [300, 300, :north]
+    process :resize_to_fill => [600, 600, :north]
   end
   
   version :thumbnail do
