@@ -5,9 +5,9 @@ namespace :delete do
     Post.delete_all("created_at < '#{120.days.ago}'")
     end
     task :duplicate_records => :environment do
-    	titles_with_multiple = Post.group(:title).having("count(title) > 1").count.keys
-    	titles_with_multiple.each do |key|
-		duplicates = Post.where(title: key).order("created_at desc").offset(1).all
+    	contents_with_multiple = Post.group(:content).having("count(content) > 1").count.keys
+    	contents_with_multiple.each do |key|
+		duplicates = Post.where(content: key).order("created_at desc").offset(1).all
 		duplicates.destroy_all
 	end
 
