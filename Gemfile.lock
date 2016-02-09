@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/DatabaseCleaner/database_cleaner.git
+  revision: 1cab518efb4cd4d24b751252ab88fe562e302d33
+  specs:
+    database_cleaner (1.5.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -226,9 +232,6 @@ GEM
       rdoc (~> 4.0)
     shellany (0.0.1)
     slop (3.6.0)
-    social-share-button (0.1.10)
-      coffee-rails
-      sass-rails
     spring (1.6.3)
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
@@ -272,6 +275,7 @@ DEPENDENCIES
   carrierwave
   cloudinary
   coffee-rails (~> 4.1.0)
+  database_cleaner!
   factory_girl_rails
   faker
   filterrific
@@ -287,7 +291,6 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
-  social-share-button
   spring
   thin
   turbolinks

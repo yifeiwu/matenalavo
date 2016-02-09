@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'social-share-button'
 gem 'carrierwave'
 gem 'cloudinary' #images
 gem 'pg_search' #full text search
@@ -46,6 +45,7 @@ group :test do
   gem 'capybara'
   gem 'guard-rspec'
   gem 'launchy'
+
 end
 
 group :development, :test do
@@ -53,6 +53,7 @@ group :development, :test do
 
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'database_cleaner', git: 'https://github.com/DatabaseCleaner/database_cleaner.git'
 
 
   gem 'byebug'
