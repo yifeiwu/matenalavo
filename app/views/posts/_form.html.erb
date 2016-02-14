@@ -1,3 +1,5 @@
+
+
 <%= form_for @post, html:{class:'form-horizontal'} do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
@@ -39,5 +41,5 @@
 
 <% end %>
 
-
+<%= javascript_include_tag( "ckeditor/init" ) %>
 
