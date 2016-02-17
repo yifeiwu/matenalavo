@@ -16,17 +16,6 @@ margin-bottom:20px;
 }
 
 
-
-.page , .prev , .next, .last, .first { 
-border-radius: 5px;
-padding: 4px;
-border: 1px solid #999;
-margin: 5px;
-}
-.current {
-border: none;
-}
-
 .list-group-item {
 	padding : 3px;
 	margin: 1px;
@@ -54,7 +43,6 @@ padding: 2px;
 }
 
 
-
 td, tr {
 font-size: 1.3em !important;
 padding: 2px;
@@ -65,9 +53,6 @@ padding: 2px;
 
 @media screen and (max-width: 568px) {
 
-.page {
-	display:none
-}
 
 p {
 font-size: 1.5em !important;
@@ -79,11 +64,7 @@ font-size: 1.4em !important;
 padding: 4px;
 }
 
-.current, .prev , .next, .last, .first { 
-font-size: 1.4em;
-line-height: 1.5em;
-display:block;
-}
+
 #adv-button{
 	display:none;
 }
