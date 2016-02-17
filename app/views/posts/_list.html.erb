@@ -8,8 +8,12 @@
 
 			<a href="<%= post_path(post) %>" class="list-group-item <%= post.category.partition(" ").first %>">
 				<h4 class="list-group-item-heading"> <%= post.title %></h4>
-				<h6 class="list-group-item-text"><%= post.category %> posting created <%= time_ago_in_words(post.created_at)%> ago</h6>
+				<span class="list-group-item-text"><%= post.category %> posting created <%= time_ago_in_words(post.created_at)%> ago<% if user_signed_in? %>
+				<%= link_to "Delete", post_path(post), method: :delete, class:"btn" %>
+				<% end %></span>
+				
 			</a>
+				
 		<%end%>
 
 

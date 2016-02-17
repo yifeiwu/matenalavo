@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+
+
+gem "devise"
+
 gem "ckeditor"
 gem 'carrierwave'
 gem 'cloudinary' #images
