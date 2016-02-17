@@ -5,6 +5,13 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
 
+
+    #dumb people keep typing in these words and screwing up the search function results
+    bad_words = {'jobs' => '', 'vacancies' => '', 'vacancy' => '', 'job' => ''}
+    re = Regexp.new(bad_words.keys.map { |x| Regexp.escape(x) }.join('|'))
+    params[:filterrific][:search_query] = params[:filterrific][:search_query].gsub(re,bad_words)
+    ##
+
     @filterrific = initialize_filterrific(
       Post,
       params[:filterrific],
@@ -20,7 +27,7 @@ class PostsController < ApplicationController
       format.html
       format.js
     end
-  
+
   end
 
 
@@ -85,13 +92,13 @@ class PostsController < ApplicationController
 
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_post
-      @post = Post.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def post_params
-      params.require(:post).permit(:category,:postpic, :contact, :content, :title, :tag_list)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def post_params
+    params.require(:post).permit(:category,:postpic, :contact, :content, :title, :tag_list)
+  end
 end

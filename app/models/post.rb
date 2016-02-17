@@ -1,8 +1,8 @@
 class Post < ActiveRecord::Base
-	include PgSearch
+  include PgSearch
 
-	POST_TYPES=['Jobs', 'Cars for Sale', 'Properties for Sale', 'Things for Sale', 'Something Else']
-	validates :title,:contact,:content, presence: true
+  POST_TYPES=['Jobs', 'Cars for Sale', 'Properties for Sale', 'Things for Sale', 'Something Else']
+  validates :title,:contact,:content, presence: true
   validates :title, length: { maximum: 40 }
 
 
@@ -20,24 +20,20 @@ class Post < ActiveRecord::Base
       :post_category,
       :post_date
     ]
-    )
+  )
 
-  # ActiveRecord association declarations
 
-  # Scope definitions. We implement all Filterrific filters through ActiveRecord
-  # scopes. In this example we omit the implementation of the scopes for brevity.
-  # Please see 'Scope patterns' for scope implementation details.
-  
-  pg_search_scope :search_query, 
-  :against => [:content, :title], 
-  :order_within_rank => "posts.updated_at DESC",
+
+  pg_search_scope :search_query,
+    :against => [:content, :title],
+    :order_within_rank => "posts.updated_at DESC",
   :using =>{
-  	:tsearch => {:prefix => true}
+    :tsearch => {:prefix => true}
   }
 
   pg_search_scope :search_any_word,
-  :against => [:content, :title], 
-  :order_within_rank => "posts.updated_at DESC",
+    :against => [:content, :title],
+    :order_within_rank => "posts.updated_at DESC",
   :using =>{
     :tsearch => {:any_word => true}
   }
@@ -84,30 +80,22 @@ class Post < ActiveRecord::Base
       ['Oldest first', 'created_at_asc'],
     ]
   end
-  
+
   def self.options_for_post_category
-   [	['Any' , '%'],
-   ['Things for Sale', 'Things for Sale'],
-   ['Cars for Sale', 'Cars for Sale'],
-   ['Properties for Sale', 'Properties for Sale'],
-   ['Job Vacancies', 'Jobs'],
-   ['Something Else', 'Something Else']
- ]
-end
-def self.options_for_post_date
-  [   ['Any' , ''],
-  ['Last week', Time.now - 7.day],
-  ['Last 2 weeks', Time.now - 14.day],
-  ['Last 30 days', Time.now - 30.day],
-]
-end
+    [ ['Any' , '%'],
+      ['Things for Sale', 'Things for Sale'],
+      ['Cars for Sale', 'Cars for Sale'],
+      ['Properties for Sale', 'Properties for Sale'],
+      ['Job Vacancies', 'Jobs'],
+      ['Something Else', 'Something Else']
+      ]
+  end
+  def self.options_for_post_date
+    [   ['Any' , ''],
+        ['Last week', Time.now - 7.day],
+        ['Last 2 weeks', Time.now - 14.day],
+        ['Last 30 days', Time.now - 30.day],
+        ]
+  end
 
 end
-
-
-
-
-
-
-
-
