@@ -6,10 +6,12 @@ class PostsController < ApplicationController
   def index
 
 
-    #dumb people keep typing in these words and screwing up the search function results
+    #remove common words from search function results, can remove these once we upgrade from pgsearch
     bad_words = {'jobs' => '', 'vacancies' => '', 'vacancy' => '', 'job' => ''}
     re = Regexp.new(bad_words.keys.map { |x| Regexp.escape(x) }.join('|'))
-    params[:filterrific][:search_query] = params[:filterrific][:search_query].gsub(re,bad_words)
+    if (params[:filterrific][:search_query] )
+      params[:filterrific][:search_query] = params[:filterrific][:search_query].gsub(re,bad_words)
+    end
     ##
 
     @filterrific = initialize_filterrific(
