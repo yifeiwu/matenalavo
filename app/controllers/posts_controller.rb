@@ -4,12 +4,13 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
+  expires_in(3.minutes, public: true)
 
 
     #remove common words from search function results, can remove these once we upgrade from pgsearch
     bad_words = {'jobs' => '', 'vacancies' => '', 'vacancy' => '', 'job' => ''}
     re = Regexp.new(bad_words.keys.map { |x| Regexp.escape(x) }.join('|'))
-    if (params[:filterrific][:search_query] )
+    if (params[:filterrific] && params[:filterrific][:search_query])
       params[:filterrific][:search_query] = params[:filterrific][:search_query].gsub(re,bad_words)
     end
     ##
