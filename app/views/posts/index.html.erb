@@ -1,5 +1,6 @@
 
 <div class='col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12' align='center'>
+<h1 class="jumbotron">Mate Na Lavo Free Fiji Classifieds</h1>
 <%= form_for_filterrific @filterrific do |f| %>
 <div class='row' >
 
@@ -9,7 +10,7 @@
         <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
         <%= f.text_field(
           :search_query,
-          :placeholder => "Search here! e.g. Suva sales, Lautoka toyota, beach, service, manager",
+          :placeholder => "Search! e.g. Suva sales, Lautoka toyota, beach, service, manager",
           class: 'filterrific-periodically-observed form-control input-lg focus',
             id: 'search-field'
             )%>
@@ -26,33 +27,32 @@
 
 <!--ADVANCED OPTIONS-->
         <div id='adv-options'>
-          <div class='col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12' align='center'>
-            <div align="center"> <h4>Classifieds Filters</h4></div>
+            <div align="center"> <h5><b>Classifieds Filters:</b></h5></div>
 
 
-            <div class='col-md-3' align='center'>
+            <div class='Grid-cell' >
               <p>Sort By</p>
               <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
             </div>
 
-            <div class='col-md-3' align='center'>
+            <div class='Grid-cell' >
               <p>Category</p>
               <%= f.select(:post_category, @filterrific.select_options[:post_category]) %>
             </div>
 
-            <div class='col-md-3' align='center'>
+            <div class='Grid-cell' >
               <p>Recent</p>
               <%= f.select(:post_date, @filterrific.select_options[:post_date]) %>
             </div>
 
 
-            <div class='col-md-3' align='center'>
+            <div class='Grid-cell' >
               <p>Reset Search Filters</p>
               <%= link_to(
                 'Reset',
                 reset_filterrific_url, class:"btn btn-sm btn-danger"
                 ) %>
-              </div>
+
             </div><!-- row -->
           </div><!-- hidden div -->
 

@@ -38,6 +38,15 @@ display:flex;
 
 }
 
+#adv-options {
+display: -webkit-flex;
+
+	display:flex;
+}
+.Grid-cell {
+	flex: 1;
+}
+
 
 
 .list-group-item {
@@ -66,6 +75,7 @@ p {
 font-size: 1.3em !important;
 padding: 2px;
 }
+
 
 
 td, tr {

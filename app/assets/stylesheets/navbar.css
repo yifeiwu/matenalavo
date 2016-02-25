@@ -1,3 +1,6 @@
+body { padding-top: 65px; }
+
+
 .navbar-brand,
 .logo-holder{
   width: 210px;
@@ -142,6 +145,7 @@
     }
     .navbar-toggle {
         display: block;
+        border:5px outset white;
     }
     .navbar-collapse {
         border-top: 1px solid transparent;
