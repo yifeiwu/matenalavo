@@ -4,8 +4,6 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-  expires_in(3.minutes, public: true)
-
 
     #remove common words from search function results, can remove these once we upgrade from pgsearch
     bad_words = {'jobs' => '', 'vacancies' => '', 'vacancy' => '', 'job' => ''}

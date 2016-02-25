@@ -12,14 +12,39 @@ position:relative;
 }
 
 #searchbar {
-margin-bottom:20px;
+padding:20px;
+display: -webkit-flex;
+display:flex;
 }
 
 
+#search-field {
+	flex: 1;
+}
+
+.Grid {
+
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: column;
+	flex-flow: column;
+
+	-webkit-justify-content: space-between; /* Safari */
+	justify-content:         space-between;
+	-webkit-align-items: stretch; /* Safari */
+	align-items:         stretch;
+	-webkit-align-content: stretch; /* Safari */
+	align-content:         stretch;
+
+}
+
+
+
 .list-group-item {
-	padding : 3px;
-	margin: 1px;
 	border-radius: 5px;
+	padding: 5px;
+	margin: 5px;
+	flex: 1;
 }
 
 .Things {
