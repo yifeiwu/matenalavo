@@ -1,45 +1,36 @@
-
-
 <%= form_for @post, html:{class:'form-horizontal'} do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-      <% @post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title,  style: 'width: 100%', :placeholder => "Headline for your ad"  %>
-  </div>
-  <div class="field">
-    <%= f.label :contact %><br>
-    <%= f.text_field :contact, style: 'width: 100%', :placeholder => "Phone and/or email address"  %>
-  </div>
-  <div class="field">
-    <%= f.label :category %><br>
-    <%= f.select :category, Post::POST_TYPES,{},:class =>"form-control", style: 'width: 100%'  %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.cktext_area :content ,style: 'width: 100%', rows:10, :placeholder => "Your main content goes here. Please include details such as your location(Suva,Nadi,Lautoka,SavuSavu etc. You can upload pictures to flickr,imgur,photobucket etc and then use the picture tool to put the image in your ad.)"%>
-
-  </div>
+<% if @post.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+  <ul>
+    <% @post.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<div class="field">
+  <%= f.label :title %><br>
+  <%= f.text_field :title,  style: 'width: 100%', :placeholder => "Headline for your ad"  %>
+</div>
+<div class="field">
+  <%= f.label :contact %><br>
+  <%= f.text_field :contact, style: 'width: 100%', :placeholder => "Phone and/or email address"  %>
+</div>
+<div class="field">
+  <%= f.label :category %><br>
+  <%= f.select :category, Post::POST_TYPES,{},:class =>"form-control", style: 'width: 100%'  %>
+</div>
+<div class="field">
+  <%= f.label :content %><br>
+  <%= f.cktext_area :content ,style: 'width: 100%', rows:10, :placeholder => "Your main content goes here. Please include details such as your location(Suva,Nadi,Lautoka,SavuSavu etc. You can upload pictures to flickr,imgur,photobucket etc and then use the picture tool to put the image in your ad.)"%>
+</div>
 <hr><h5>Upload a picture</h5>
 <%= f.file_field :postpic %>
 <hr>
-
-  <div class="actions" align="center">
+<div class="actions" align="center">
   <%= link_to 'Back', posts_path, class: "btn btn-large btn-default" %>
-    <%= f.submit "Post my Ad", class: "btn btn-large btn-primary"%>
-  </div>
-
+  <%= f.submit "Post my Ad", class: "btn btn-large btn-primary"%>
+</div>
 <% end %>
-
 <%= javascript_include_tag( "ckeditor/init" ) %>
-

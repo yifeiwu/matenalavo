@@ -1,28 +1,17 @@
 <%# app/views/students/_list.html.erb %>
-
-  <div class='Grid' align='center'>
-
+<div class='Grid' align='center'>
 	<div class="list-group">
-
 		<% posts.each do |post| %>
-
-
-			<a href="<%= post_path(post) %>" class="list-group-item <%= post.category.partition(" ").first %>">
-				<h4 class="list-group-item-heading"> <%= post.title %></h4>
-				<span class="list-group-item-text"><%= post.category %> posting created <%= time_ago_in_words(post.created_at)%> ago<% if user_signed_in? %>
+		<a href="<%= post_path(post) %>" class="list-group-item Grid-H <%= post.category.partition(" ").first %>">
+			<h3 class="list-group-item-heading" style="display:inline-block;flex:3;" > <%= post.title %></h3>
+			<span class="list-group-item-text Grid-cell"><%= post.category %> created <%= time_ago_in_words(post.created_at)%> ago<% if user_signed_in? %>
 				<%= link_to "Delete", post_path(post), method: :delete, class:"btn" %>
-				<% end %></span>
-			</a>
-				
-
+			<% end %></span>
+		</a>
+		
 		<%end%>
-
-
 	</div>
 </div>
-
-	<div class='row' id="paginator">
-		<%= paginate @posts, :remote => true %>
-	</div>
-
-
+<div id="paginator">
+	<%= paginate @posts, :remote => true %>
+</div>
