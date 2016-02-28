@@ -1,3 +1,5 @@
+<% cache @post do %>
+
 <% content_for :page_title do
 @post.title
 end %>
@@ -73,3 +75,4 @@ end %>
       <%= link_to 'Back', posts_path, class: "btn btn-block btn-default" %><br>
     </div>
   </div>
+  <% end %>

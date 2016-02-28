@@ -1,3 +1,4 @@
+<% cache @posts do %>
 <div class='col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12' align='center'>
   <h1 class="jumbotron">Mate Na Lavo Free Fiji Classifieds</h1>
   <%= form_for_filterrific @filterrific do |f| %>
@@ -52,6 +53,8 @@
           ) %>
         </div>
       </div>
+      <% end %>
+
       <script>
       /*focus on the search bar and hide options on load*/
       var ready;
