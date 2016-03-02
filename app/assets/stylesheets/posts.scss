@@ -19,7 +19,7 @@ display:flex;
 
 
 #search-field {
-flex: 1;
+flex:1;
 }
 
 .Grid {
@@ -125,7 +125,17 @@ padding: 4px;
 display:none;
 }
 
-.list-group-item {
+#searchbar {
+-webkit-flex-flow: column;
+flex-flow: column;
+}
+
+//hide everything but the next/prev buttons
+.pagination li:not(:nth-child(2)):not(:nth-last-child(2)):not(.active)  {
+	display:none;
+}
+
+.list-group-item, .pagination {
 margin: 10px;
 }
 
