@@ -10,24 +10,19 @@ border: inset 1px solid #333;
 margin:auto;
 position:relative;
 }
-
 #searchbar {
 padding:20px;
 display: -webkit-flex;
 display:flex;
 }
-
-
 #search-field {
 flex:1;
 }
-
 .Grid {
 display: -webkit-flex;
 display: flex;
 -webkit-flex-flow: column;
 flex-flow: column;
-
 -webkit-justify-content: space-between; /* Safari */
 justify-content:         space-between;
 -webkit-align-items: stretch; /* Safari */
@@ -35,7 +30,6 @@ align-items:         stretch;
 -webkit-align-content: stretch; /* Safari */
 align-content:         stretch;
 }
-
 .Grid-H {
 display: -webkit-flex;
 display: flex;
@@ -46,7 +40,6 @@ align-items:         stretch;
 -webkit-align-content: stretch; /* Safari */
 align-content:         stretch;
 }
-
 #adv-options {
 display: -webkit-flex;
 display:flex;
@@ -54,7 +47,6 @@ display:flex;
 .Grid-cell {
 flex: 1;
 }
-
 #paginator{
 display:-webkit-flex;
 display:flex;
@@ -62,16 +54,13 @@ display:flex;
 justify-content:center;
 -webkit-align-content: stretch; /* Safari */
 align-content:         stretch;
-
 }
-
 .list-group-item {
 border-radius: 5px;
 padding: 10px;
 margin: 5px;
 flex: 1;
 }
-
 .Things {
 background-color: #4AA3A3;
 }
@@ -84,60 +73,40 @@ background-color: #008B8B;
 .Jobs {
 background-color: #FFFF73;
 }
-
 @media screen and (max-width: 1366px) {
-
 p {
 font-size: 1.3em !important;
 padding: 2px;
 }
-
-
-
 td, tr {
 font-size: 1.3em !important;
 padding: 2px;
 }
-
 .list-group-item {
 margin: 7px;
-
 }
 }
-
-
-
 @media screen and (max-width: 568px) {
-
-
 p {
 font-size: 1.5em !important;
 padding: 3px;
 }
-
 td, tr {
 font-size: 1.4em !important;
 padding: 4px;
 }
-
-
 #adv-button{
 display:none;
 }
-
 #searchbar {
 -webkit-flex-flow: column;
 flex-flow: column;
 }
-
 //hide everything but the next/prev buttons
 .pagination li:not(:nth-child(2)):not(:nth-last-child(2)):not(.active)  {
-	display:none;
+display:none;
 }
-
 .list-group-item{
 margin: 10px;
 }
-
 }
-

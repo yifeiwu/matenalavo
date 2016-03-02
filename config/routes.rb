@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get '/news' => 'static_pages#news'
   get '/about' => 'static_pages#about'
 
- root 'posts#index'
+  root 'posts#index'
 
   resources :posts
 
