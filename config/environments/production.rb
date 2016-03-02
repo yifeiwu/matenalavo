@@ -78,4 +78,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.cache_store = :memory_store
 
+  config.serve_static_assets = true
+  config.static_cache_control = public, max-age=31536000
+
 end
