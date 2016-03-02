@@ -1,12 +1,11 @@
 class Post < ActiveRecord::Base
   include PgSearch
 
+
   POST_TYPES=['Jobs', 'Cars for Sale', 'Properties for Sale', 'Things for Sale', 'Something Else']
   validates :title,:contact,:content, presence: true
   validates :title, length: { maximum: 40 }
-
-
-
+  before_save :fix_title
 
   mount_uploader :postpic, PostpicUploader
 
@@ -73,7 +72,6 @@ class Post < ActiveRecord::Base
     return similar_array
   end
 
-
   def self.options_for_sorted_by
     [
       ['Newest first', 'created_at_desc'],
@@ -90,6 +88,7 @@ class Post < ActiveRecord::Base
       ['Something Else', 'Something Else']
       ]
   end
+
   def self.options_for_post_date
     [   ['Any' , ''],
         ['Last week', Time.now - 7.day],
@@ -98,4 +97,9 @@ class Post < ActiveRecord::Base
         ]
   end
 
-end
+  protected
+  def fix_title
+    self.title = self.title.titleize
+  end
+
+  end
