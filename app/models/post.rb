@@ -21,8 +21,6 @@ class Post < ActiveRecord::Base
     ]
   )
 
-
-
   pg_search_scope :search_query,
     :against => [:content, :title],
     :order_within_rank => "posts.updated_at DESC",
@@ -98,6 +96,7 @@ class Post < ActiveRecord::Base
   end
 
   protected
+
   def fix_title
     self.title = self.title.titleize
   end
