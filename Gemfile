@@ -8,7 +8,8 @@ gem 'cloudinary' #images
 gem 'pg_search' #full text search
 gem 'kaminari' #pagination
 gem 'filterrific'
-gem 'thin'
+gem 'thin', group: :development
+gem "passenger", group: :production
 gem 'rails_12factor', group: :production
 
 
