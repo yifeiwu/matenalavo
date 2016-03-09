@@ -35,7 +35,10 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @similar_posts = @post.similar_posts
+
+
+
+    #@similar_posts = @post.similar_posts
   end
 
   # GET /posts/new
