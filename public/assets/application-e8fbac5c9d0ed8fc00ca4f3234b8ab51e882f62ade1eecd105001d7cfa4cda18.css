@@ -1,0 +1,361 @@
+body { padding-top: 65px; }
+
+
+.navbar-brand,
+.logo-holder{
+  width: 210px;
+  height: 60px;
+  padding-top: 2px;
+  padding-bottom: 5px;
+ 
+}
+.navbar-nav li a {
+  line-height: 60px;
+  height: 60px;
+  
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin-left:10px;
+  margin-right:10px;
+  font-size:      1.5em;
+}
+
+.navbar-default {
+
+  /* highlights */
+  background-color: #4db7de;
+  background-image: -webkit-gradient(linear, left 0%, left 100%, from(#78c8e6), to(#4db7de));
+  background-image: -webkit-linear-gradient(top, #78c8e6, 0%, #4db7de, 100%);
+  background-image: -moz-linear-gradient(top, #78c8e6 0%, #4db7de 100%);
+  background-image: linear-gradient(to bottom, #78c8e6 0%, #4db7de 100%);
+  background-repeat: repeat;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff78c8e6', endColorstr='#ff4db7de', GradientType=0);
+
+
+}
+
+.navbar-default .navbar-brand {
+  color: #ffffff;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #e6e6e6;
+  background-color: transparent;
+}
+.navbar-default .navbar-text {
+  color: #ffffff;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #ffffff;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #e6e6e6;
+  background-color: #2dacdb;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #ffffff;
+  background-color: #31acd9;
+  background-image: -webkit-gradient(linear, left 0%, left 100%, from(#31acd9), to(#5cbde1));
+  background-image: -webkit-linear-gradient(top, #31acd9, 0%, #5cbde1, 100%);
+  background-image: -moz-linear-gradient(top, #31acd9 0%, #5cbde1 100%);
+  background-image: linear-gradient(to bottom, #31acd9 0%, #5cbde1 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff31acd9', endColorstr='#ff5cbde1', GradientType=0);
+}
+.navbar-default .navbar-nav > .disabled > a,
+.navbar-default .navbar-nav > .disabled > a:hover,
+.navbar-default .navbar-nav > .disabled > a:focus {
+  color: #cccccc;
+  background-color: transparent;
+}
+.navbar-default .navbar-toggle {
+  border-color: #dddddd;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #dddddd;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #cccccc;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #2fabd8;
+}
+.navbar-default .navbar-nav > .dropdown > a:hover .caret,
+.navbar-default .navbar-nav > .dropdown > a:focus .caret {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  background-color: #31acd9;
+  color: #ffffff;
+}
+.navbar-default .navbar-nav > .open > a .caret,
+.navbar-default .navbar-nav > .open > a:hover .caret,
+.navbar-default .navbar-nav > .open > a:focus .caret {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+.navbar-default .navbar-nav > .dropdown > a .caret {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+@media (max-width: 767) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #ffffff;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #ffffff;
+    background-color: transparent;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #ffffff;
+    background-color: #31acd9;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+    color: #cccccc;
+    background-color: transparent;
+  }
+}
+.navbar-default .navbar-link {
+  color: #ffffff;
+}
+.navbar-default .navbar-link:hover {
+  color: #ffffff;
+}
+
+
+@media (max-width: 1280px) {
+    .navbar-header {
+        float: none;
+        min-height: 80px !important;
+        padding-top: 10px;
+    }
+    .navbar-toggle {
+        display: block;
+        border:5px outset white;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+        
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+        margin: 7.5px -15px;
+
+    }
+    .navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+
+        padding-top: 0px;
+        padding-bottom: 10px;
+
+    }
+    .navbar-collapse.collapse.in { display: block!important; }
+}
+
+@media (max-width: 280px) {
+  .navbar-brand,
+  .logo-holder{
+    display:none;
+  }
+}
+
+/* line 4, /home/david/fijilist/app/assets/stylesheets/posts.scss */
+.form-horizontal {
+  background-color: #fafafa;
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid #999;
+  border: inset 1px solid #333;
+  margin: auto;
+  position: relative;
+}
+
+/* line 13, /home/david/fijilist/app/assets/stylesheets/posts.scss */
+#searchbar {
+  padding: 20px;
+  display: -webkit-flex;
+  display: flex;
+}
+
+/* line 18, /home/david/fijilist/app/assets/stylesheets/posts.scss */
+#search-field {
+  flex: 1;
+}
+
+/* line 21, /home/david/fijilist/app/assets/stylesheets/posts.scss */
+.Grid {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: column;
+  flex-flow: column;
+  -webkit-justify-content: space-between;
+  /* Safari */
+  justify-content: space-between;
+  -webkit-align-items: stretch;
+  /* Safari */
+  align-items: stretch;
+  -webkit-align-content: stretch;
+  /* Safari */
+  align-content: stretch;
+}
+
+/* line 33, /home/david/fijilist/app/assets/stylesheets/posts.scss */
+.Grid-H {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row;
+  flex-flow: row;
+  -webkit-align-items: stretch;
+  /* Safari */
+  align-items: stretch;
+  -webkit-align-content: stretch;
+  /* Safari */
+  align-content: stretch;
+}
+
+/* line 43, /home/david/fijilist/app/assets/stylesheets/posts.scss */
+#adv-options {
+  display: -webkit-flex;
+  display: flex;
+}
+
+/* line 47, /home/david/fijilist/app/assets/stylesheets/posts.scss */
+.Grid-cell {
+  flex: 1;
+}
+
+/* line 50, /home/david/fijilist/app/assets/stylesheets/posts.scss */
+#paginator {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-content: stretch;
+  /* Safari */
+  align-content: stretch;
+}
+
+/* line 58, /home/david/fijilist/app/assets/stylesheets/posts.scss */
+.list-group-item {
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px;
+  flex: 1;
+}
+
+/* line 64, /home/david/fijilist/app/assets/stylesheets/posts.scss */
+.Things {
+  background-color: #4AA3A3;
+}
+
+/* line 67, /home/david/fijilist/app/assets/stylesheets/posts.scss */
+.Cars {
+  background-color: #0F9999;
+}
+
+/* line 70, /home/david/fijilist/app/assets/stylesheets/posts.scss */
+.Properties {
+  background-color: #008B8B;
+}
+
+/* line 73, /home/david/fijilist/app/assets/stylesheets/posts.scss */
+.Jobs {
+  background-color: #FFFF73;
+}
+
+@media screen and (max-width: 1366px) {
+  /* line 77, /home/david/fijilist/app/assets/stylesheets/posts.scss */
+  p {
+    font-size: 1.3em !important;
+    padding: 2px;
+  }
+
+  /* line 81, /home/david/fijilist/app/assets/stylesheets/posts.scss */
+  td, tr {
+    font-size: 1.3em !important;
+    padding: 2px;
+  }
+
+  /* line 85, /home/david/fijilist/app/assets/stylesheets/posts.scss */
+  .list-group-item {
+    margin: 7px;
+  }
+}
+@media screen and (max-width: 568px) {
+  /* line 90, /home/david/fijilist/app/assets/stylesheets/posts.scss */
+  p {
+    font-size: 1.5em !important;
+    padding: 3px;
+  }
+
+  /* line 94, /home/david/fijilist/app/assets/stylesheets/posts.scss */
+  td, tr {
+    font-size: 1.4em !important;
+    padding: 4px;
+  }
+
+  /* line 98, /home/david/fijilist/app/assets/stylesheets/posts.scss */
+  #adv-button {
+    display: none;
+  }
+
+  /* line 101, /home/david/fijilist/app/assets/stylesheets/posts.scss */
+  #searchbar {
+    -webkit-flex-flow: column;
+    flex-flow: column;
+  }
+
+  /* line 106, /home/david/fijilist/app/assets/stylesheets/posts.scss */
+  .pagination li:not(:nth-child(2)):not(:nth-last-child(2)):not(.active) {
+    display: none;
+  }
+
+  /* line 109, /home/david/fijilist/app/assets/stylesheets/posts.scss */
+  .list-group-item {
+    margin: 10px;
+  }
+}
+.rrssb-buttons{box-sizing:border-box;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:12px;height:36px;margin:0;padding:0;width:100%}.rrssb-buttons:after{clear:both}.rrssb-buttons:after,.rrssb-buttons:before{content:' ';display:table}.rrssb-buttons li{box-sizing:border-box;float:left;height:100%;line-height:13px;list-style:none;margin:0;padding:0 2px}.rrssb-buttons li.rrssb-email a{background-color:#0a88ff}.rrssb-buttons li.rrssb-email a:hover{background-color:#006ed6}.rrssb-buttons li.rrssb-facebook a{background-color:#306199}.rrssb-buttons li.rrssb-facebook a:hover{background-color:#244872}.rrssb-buttons li.rrssb-tumblr a{background-color:#32506d}.rrssb-buttons li.rrssb-tumblr a:hover{background-color:#22364a}.rrssb-buttons li.rrssb-linkedin a{background-color:#007bb6}.rrssb-buttons li.rrssb-linkedin a:hover{background-color:#005983}.rrssb-buttons li.rrssb-twitter a{background-color:#26c4f1}.rrssb-buttons li.rrssb-twitter a:hover{background-color:#0eaad6}.rrssb-buttons li.rrssb-googleplus a{background-color:#e93f2e}.rrssb-buttons li.rrssb-googleplus a:hover{background-color:#ce2616}.rrssb-buttons li.rrssb-youtube a{background-color:#df1c31}.rrssb-buttons li.rrssb-youtube a:hover{background-color:#b21627}.rrssb-buttons li.rrssb-reddit a{background-color:#8bbbe3}.rrssb-buttons li.rrssb-reddit a:hover{background-color:#62a3d9}.rrssb-buttons li.rrssb-pinterest a{background-color:#b81621}.rrssb-buttons li.rrssb-pinterest a:hover{background-color:#8a1119}.rrssb-buttons li.rrssb-pocket a{background-color:#ed4054}.rrssb-buttons li.rrssb-pocket a:hover{background-color:#e4162d}.rrssb-buttons li.rrssb-github a{background-color:#444}.rrssb-buttons li.rrssb-github a:hover{background-color:#2b2b2b}.rrssb-buttons li.rrssb-instagram a{background-color:#125688}.rrssb-buttons li.rrssb-instagram a:hover{background-color:#0c3a5b}.rrssb-buttons li.rrssb-delicious a{background-color:#0b79e5}.rrssb-buttons li.rrssb-delicious a:hover{background-color:#095fb4}.rrssb-buttons li.rrssb-vk a{background-color:#4d71a9}.rrssb-buttons li.rrssb-vk a:hover{background-color:#3d5a86}.rrssb-buttons li.rrssb-hackernews a{background-color:#f60}.rrssb-buttons li.rrssb-hackernews a:hover{background-color:#cc5200}.rrssb-buttons li a{background-color:#ccc;border-radius:2px;box-sizing:border-box;display:block;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-weight:700;height:100%;padding:11px 7px 12px 27px;position:relative;text-align:center;text-decoration:none;text-transform:uppercase;-webkit-transition:background-color .2s ease-in-out;transition:background-color .2s ease-in-out;width:100%}.rrssb-buttons li a .rrssb-icon{display:block;left:10px;padding-top:9px;position:absolute;top:0;width:10%}.rrssb-buttons li a .rrssb-icon svg{height:17px;width:17px}.rrssb-buttons li a .rrssb-icon svg path{fill:#fff}.rrssb-buttons li a .rrssb-text{color:#fff}.rrssb-buttons li a:active{box-shadow:inset 1px 3px 15px 0 rgba(22,0,0,.25)}.rrssb-buttons li.small a{padding:0}.rrssb-buttons li.small a .rrssb-icon{left:auto;margin:0 auto;overflow:hidden;position:relative;top:auto;width:100%}.rrssb-buttons li.small a .rrssb-text{visibility:hidden}.rrssb-buttons.large-format,.rrssb-buttons.large-format li{height:auto}.rrssb-buttons.large-format li a{-webkit-backface-visibility:hidden;backface-visibility:hidden;border-radius:.2em;padding:8.5% 0 8.5% 12%}.rrssb-buttons.large-format li a .rrssb-icon{height:100%;left:7%;padding-top:0;width:12%}.rrssb-buttons.large-format li a .rrssb-icon svg{height:100%;position:absolute;top:0;width:100%}.rrssb-buttons.large-format li a .rrssb-text{-webkit-backface-visibility:hidden;backface-visibility:hidden}.rrssb-buttons.small-format{padding-top:5px}.rrssb-buttons.small-format li{height:80%;padding:0 1px}.rrssb-buttons.small-format li a .rrssb-icon{height:100%;padding-top:0}.rrssb-buttons.small-format li a .rrssb-icon svg{height:48%;position:relative;top:6px;width:80%}.rrssb-buttons.tiny-format{height:22px;position:relative}.rrssb-buttons.tiny-format li{padding-right:7px}.rrssb-buttons.tiny-format li a{background-color:transparent;padding:0}.rrssb-buttons.tiny-format li a .rrssb-icon svg{height:70%;width:100%}.rrssb-buttons.tiny-format li a:active,.rrssb-buttons.tiny-format li a:hover{background-color:transparent}.rrssb-buttons.tiny-format li.rrssb-email a .rrssb-icon svg path{fill:#0a88ff}.rrssb-buttons.tiny-format li.rrssb-email a .rrssb-icon:hover .rrssb-icon svg path{fill:#0054a3}.rrssb-buttons.tiny-format li.rrssb-facebook a .rrssb-icon svg path{fill:#306199}.rrssb-buttons.tiny-format li.rrssb-facebook a .rrssb-icon:hover .rrssb-icon svg path{fill:#18304b}.rrssb-buttons.tiny-format li.rrssb-tumblr a .rrssb-icon svg path{fill:#32506d}.rrssb-buttons.tiny-format li.rrssb-tumblr a .rrssb-icon:hover .rrssb-icon svg path{fill:#121d27}.rrssb-buttons.tiny-format li.rrssb-linkedin a .rrssb-icon svg path{fill:#007bb6}.rrssb-buttons.tiny-format li.rrssb-linkedin a .rrssb-icon:hover .rrssb-icon svg path{fill:#003650}.rrssb-buttons.tiny-format li.rrssb-twitter a .rrssb-icon svg path{fill:#26c4f1}.rrssb-buttons.tiny-format li.rrssb-twitter a .rrssb-icon:hover .rrssb-icon svg path{fill:#0b84a6}.rrssb-buttons.tiny-format li.rrssb-googleplus a .rrssb-icon svg path{fill:#e93f2e}.rrssb-buttons.tiny-format li.rrssb-googleplus a .rrssb-icon:hover .rrssb-icon svg path{fill:#a01e11}.rrssb-buttons.tiny-format li.rrssb-youtube a .rrssb-icon svg path{fill:#df1c31}.rrssb-buttons.tiny-format li.rrssb-youtube a .rrssb-icon:hover .rrssb-icon svg path{fill:#84111d}.rrssb-buttons.tiny-format li.rrssb-reddit a .rrssb-icon svg path{fill:#8bbbe3}.rrssb-buttons.tiny-format li.rrssb-reddit a .rrssb-icon:hover .rrssb-icon svg path{fill:#398bcf}.rrssb-buttons.tiny-format li.rrssb-pinterest a .rrssb-icon svg path{fill:#b81621}.rrssb-buttons.tiny-format li.rrssb-pinterest a .rrssb-icon:hover .rrssb-icon svg path{fill:#5d0b11}.rrssb-buttons.tiny-format li.rrssb-pocket a .rrssb-icon svg path{fill:#ed4054}.rrssb-buttons.tiny-format li.rrssb-pocket a .rrssb-icon:hover .rrssb-icon svg path{fill:#b61124}.rrssb-buttons.tiny-format li.rrssb-github a .rrssb-icon svg path{fill:#444}.rrssb-buttons.tiny-format li.rrssb-github a .rrssb-icon:hover .rrssb-icon svg path{fill:#111}.rrssb-buttons.tiny-format li.rrssb-instagram a .rrssb-icon svg path{fill:#125688}.rrssb-buttons.tiny-format li.rrssb-instagram a .rrssb-icon:hover .rrssb-icon svg path{fill:#061d2e}.rrssb-buttons.tiny-format li.rrssb-delicious a .rrssb-icon svg path{fill:#0b79e5}.rrssb-buttons.tiny-format li.rrssb-delicious a .rrssb-icon:hover .rrssb-icon svg path{fill:#064684}.rrssb-buttons.tiny-format li.rrssb-vk a .rrssb-icon svg path{fill:#4d71a9}.rrssb-buttons.tiny-format li.rrssb-vk a .rrssb-icon:hover .rrssb-icon svg path{fill:#2d4263}.rrssb-buttons.tiny-format li.rrssb-hackernews a .rrssb-icon svg path{fill:#f60}.rrssb-buttons.tiny-format li.rrssb-hackernews a .rrssb-icon:hover .rrssb-icon svg path{fill:#993d00}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+
+
+ */
+
+
+
+
+
+
