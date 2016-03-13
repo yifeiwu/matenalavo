@@ -1,3 +1,9 @@
+<% if (params[:filterrific])  %>
+<% content_for :page_title do %>
+<%= "Searching for #{params[:filterrific][:search_query]} #{params[:filterrific][:post_category]}" %>
+<% end %>
+<% end %>
+
 <% cache [@posts, user_signed_in?] do %>
 <div class='col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12' align='center'>
   <h1 class="jumbotron">Mate Na Lavo Free Fiji Classifieds</h1>
@@ -46,6 +52,15 @@
         <%# add an automated spinner to your form when the list is refreshed %>
         <%= render_filterrific_spinner %>
         <% end %><!-- form -->
+
+        <% if (params[:filterrific]) %>
+        <%  query_title= "Searching #{params[:filterrific][:search_query]} in #{params[:filterrific][:post_category]}" %>
+        <hr>
+        <h2><%= query_title %></h2>
+        <hr>
+        <% end %>
+
+
         <div id="filterrific_results">
           <%= render(
           partial: 'posts/list',
@@ -53,7 +68,7 @@
           ) %>
 
           <% if @posts.count == 0 %>
-          <p>No results found, try less words</p>
+          <h3>No results found, try less words</h3>
           <% end %>
         </div>
       </div>
