@@ -1,7 +1,5 @@
-<% if (params[:filterrific])  %>
 <% content_for :page_title do %>
-<%= "Searching for #{params[:filterrific][:search_query]} #{params[:filterrific][:post_category]}" %>
-<% end %>
+<%= "#{@title_string}"  %>
 <% end %>
 
 <% cache [@posts, user_signed_in?] do %>
@@ -53,10 +51,9 @@
         <%= render_filterrific_spinner %>
         <% end %><!-- form -->
 
-        <% if (params[:filterrific]) %>
-        <%  query_title= "Searching #{params[:filterrific][:search_query]} in #{params[:filterrific][:post_category]}" %>
+        <% if (@title_string) %>
         <hr>
-        <h2><%= query_title %></h2>
+        <h2><%= @title_string %></h2>
         <hr>
         <% end %>
 

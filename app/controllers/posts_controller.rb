@@ -9,9 +9,15 @@ class PostsController < ApplicationController
     bad_words = {'jobs' => '', 'vacancies' => '', 'vacancy' => '', 'job' => ''}
     re = Regexp.new(bad_words.keys.map { |x| Regexp.escape(x) }.join('|'))
     if (params[:filterrific] && params[:filterrific][:search_query])
-      params[:filterrific][:search_query] = params[:filterrific][:search_query].gsub(re,bad_words)
+        params[:filterrific][:search_query] = params[:filterrific][:search_query].gsub(re,bad_words)
     end
     ##
+    if (params[:filterrific])
+      @title_string ="Searching #{params[:filterrific][:search_query]} #{params[:filterrific][:post_category]}"
+      @title_string = @title_string.gsub('%','')
+    end
+
+
 
     @filterrific = initialize_filterrific(
       Post,
