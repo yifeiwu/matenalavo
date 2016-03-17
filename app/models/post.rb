@@ -1,5 +1,7 @@
 class Post < ActiveRecord::Base
   include PgSearch
+  extend FriendlyId
+  friendly_id :title, use: :slugged
 
 
   POST_TYPES=['Jobs', 'Cars for Sale', 'Properties for Sale', 'Things for Sale', 'Something Else']

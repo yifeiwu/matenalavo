@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem "devise"
 
+gem 'friendly_id', '~> 5.1.0'
 gem "ckeditor"
 gem 'carrierwave'
 gem 'cloudinary' #images

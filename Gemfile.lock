@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/DatabaseCleaner/database_cleaner.git
-  revision: 284019742c038ed66bc6fb9c291c64e7e639eeee
+  revision: f318781a77228f5999f5f2371c12f59089c141f3
   specs:
     database_cleaner (1.5.1)
 
@@ -71,7 +71,7 @@ GEM
       orm_adapter (~> 0.5.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
-    cloudinary (1.1.2)
+    cloudinary (1.1.3)
       aws_cf_signer
       rest-client
     cocaine (0.5.8)
@@ -95,10 +95,10 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
-    domain_name (0.5.20160309)
+    domain_name (0.5.20160310)
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
-    eventmachine (1.0.9.1)
+    eventmachine (1.2.0.1)
     execjs (2.6.0)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
@@ -111,6 +111,8 @@ GEM
     filterrific (2.0.5)
       rails (>= 3.1.0)
     formatador (0.2.5)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     guard (2.13.0)
@@ -133,8 +135,8 @@ GEM
     jbuilder (2.4.1)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
-    jquery-rails (4.1.0)
-      rails-dom-testing (~> 1.0)
+    jquery-rails (4.1.1)
+      rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.3)
@@ -208,7 +210,7 @@ GEM
       activesupport (= 4.2.0)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    rake (11.0.1)
+    rake (11.1.1)
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
@@ -302,6 +304,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   filterrific
+  friendly_id (~> 5.1.0)
   guard-rspec
   jbuilder (~> 2.0)
   jquery-rails
