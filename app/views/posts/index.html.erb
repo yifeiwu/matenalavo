@@ -4,7 +4,7 @@
 
 <% cache [@posts, user_signed_in?] do %>
 <div class='col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12' align='center'>
-  <h1 class="jumbotron">Mate Na Lavo Free Fiji Classifieds</h1>
+  <h1 class="jumbotron">Free Fiji Classifieds</h1>
   <%= form_for_filterrific @filterrific do |f| %>
   <div class='row' >
     <div id="searchbar" class="input-group">
@@ -54,6 +54,10 @@
         <% if (@title_string) %>
         <hr>
         <h2><%= @title_string %></h2>
+        <hr>
+        <% else %>
+        <hr>
+        <h2>Recent Classifieds</h2>
         <hr>
         <% end %>
 
