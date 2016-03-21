@@ -6,6 +6,10 @@ namespace :replace do
     	posts.each do |post|
     		post.content = post.content.gsub(/\/i+/,' ')
         post.title = post.title.gsub(/\/i+/,' ')
+
+        post.content = post.content.gsub(/&amp;Amp;/,'&')
+        post.title = post.title.gsub(/&Amp;/,'&')
+
         post.title = post.title.gsub(/vacancy/i,'').titleize
 
     		post.save
