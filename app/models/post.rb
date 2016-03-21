@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
   POST_TYPES=['Jobs', 'Cars for Sale', 'Properties for Sale', 'Things for Sale', 'Something Else']
   validates :title,:contact,:content, presence: true
   validates :title, length: { maximum: 40 }
-  before_save :fix_title
+  before_save :fix_title, :replace_frags
 
   mount_uploader :postpic, PostpicUploader
 
@@ -72,6 +72,9 @@ class Post < ActiveRecord::Base
     return similar_array
   end
 
+
+
+
   def self.options_for_sorted_by
     [
       ['Newest first', 'created_at_desc'],
@@ -101,6 +104,14 @@ class Post < ActiveRecord::Base
 
   def fix_title
     self.title = self.title.titleize
+  end
+
+  def replace_frags
+        self.content = self.content.gsub(/\/i+/,' ')
+        self.title = self.title.gsub(/\/i+/,' ')
+
+        self.content = self.content.gsub(/&amp;Amp;/,'&')
+        self.title = self.title.gsub(/&Amp;/,'&')
   end
 
   end
