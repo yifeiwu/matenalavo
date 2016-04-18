@@ -4,47 +4,39 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-
-    #remove common words from search function results, can remove these once we upgrade from pgsearch
-    bad_words = {'jobs' => '', 'vacancies' => '', 'vacancy' => '', 'job' => ''}
+    # remove common words from search function results, can remove these once we upgrade from pgsearch
+    bad_words = { 'jobs' => '', 'vacancies' => '', 'vacancy' => '', 'job' => '' }
     re = Regexp.new(bad_words.keys.map { |x| Regexp.escape(x) }.join('|'))
-    if (params[:filterrific] && params[:filterrific][:search_query])
-        params[:filterrific][:search_query] = params[:filterrific][:search_query].gsub(re,bad_words)
+    if params[:filterrific] && params[:filterrific][:search_query]
+      params[:filterrific][:search_query] = params[:filterrific][:search_query].gsub(re, bad_words)
     end
     ##
-    if (params[:filterrific])
-      @title_string ="Searching #{params[:filterrific][:search_query]} #{params[:filterrific][:post_category]}"
-      @title_string = @title_string.gsub('%','')
+    if params[:filterrific]
+      @title_string = "Searching #{params[:filterrific][:search_query]} #{params[:filterrific][:post_category]}"
+      @title_string = @title_string.delete('%')
     end
 
-
-
-    @filterrific = initialize_filterrific(
+    (@filterrific = initialize_filterrific(
       Post,
       params[:filterrific],
-      :select_options => {
+      select_options: {
         sorted_by: Post.options_for_sorted_by,
         post_category: Post.options_for_post_category,
         post_date: Post.options_for_post_date
       }
-    ) or return
+    )) || return
     @posts = @filterrific.find.page(params[:page]).per(10)
 
     respond_to do |format|
       format.html
       format.js
     end
-
   end
-
 
   # GET /posts/1
   # GET /posts/1.json
   def show
-
-
-
-    #@similar_posts = @post.similar_posts
+    # @similar_posts = @post.similar_posts
   end
 
   # GET /posts/new
@@ -97,11 +89,8 @@ class PostsController < ApplicationController
     end
   end
 
-
-
-
-
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_post
     @post = Post.friendly.find(params[:id])
@@ -109,6 +98,6 @@ class PostsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def post_params
-    params.require(:post).permit(:category,:postpic, :contact, :content, :title, :tag_list)
+    params.require(:post).permit(:category, :postpic, :contact, :content, :title, :tag_list)
   end
 end

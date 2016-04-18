@@ -2,20 +2,18 @@ source 'https://rubygems.org'
 
 ruby '2.2.1'
 
-gem "devise"
+gem 'devise'
 
 gem 'friendly_id', '~> 5.1.0'
-gem "ckeditor"
+gem 'ckeditor'
 gem 'carrierwave'
-gem 'cloudinary' #images
-gem 'pg_search' #full text search
-gem 'kaminari' #pagination
+gem 'cloudinary' # images
+gem 'pg_search' # full text search
+gem 'kaminari' # pagination
 gem 'filterrific'
 gem 'thin', group: :development
-gem "passenger", group: :production
+gem 'passenger', group: :production
 gem 'rails_12factor', group: :production
-
-
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
@@ -48,13 +46,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-  gem 'web-console', '~> 2.0', group: :development
+gem 'web-console', '~> 2.0', group: :development
 group :test do
   gem 'faker'
   gem 'capybara'
   gem 'guard-rspec'
   gem 'launchy'
-
 end
 
 group :development, :test do
@@ -63,13 +60,12 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'database_cleaner', git: 'https://github.com/DatabaseCleaner/database_cleaner.git'
-
+  gem 'rubocop', require: false
 
   gem 'byebug'
   gem 'better_errors'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
-
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

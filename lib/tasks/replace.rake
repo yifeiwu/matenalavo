@@ -1,19 +1,18 @@
 # lib/tasks/delete_old_records.rake
 namespace :replace do
   desc 'Replace words, fragments'
-  task :frags => :environment do
-    	posts = Post.all
-    	posts.each do |post|
-    		post.content = post.content.gsub(/\/i+/,' ')
-        post.title = post.title.gsub(/\/i+/,' ')
+  task frags: :environment do
+    posts = Post.all
+    posts.each do |post|
+      post.content = post.content.gsub(/\/i+/, ' ')
+      post.title = post.title.gsub(/\/i+/, ' ')
 
-        post.content = post.content.gsub(/&amp;Amp;/,'&')
-        post.title = post.title.gsub(/&Amp;/,'&')
+      post.content = post.content.gsub(/&amp;Amp;/, '&')
+      post.title = post.title.gsub(/&Amp;/, '&')
 
-        post.title = post.title.gsub(/vacancy/i,'').titleize
+      post.title = post.title.gsub(/vacancy/i, '').titleize
 
-    		post.save
-      end
-	  end
+      post.save
+    end
   end
-
+end

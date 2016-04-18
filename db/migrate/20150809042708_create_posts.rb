@@ -5,7 +5,6 @@ class CreatePosts < ActiveRecord::Migration
       t.string :contact
       t.string :category
       t.text :content
-      
 
       t.timestamps null: false
     end

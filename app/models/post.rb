@@ -3,14 +3,12 @@ class Post < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
 
-
-  POST_TYPES=['Jobs', 'Cars for Sale', 'Properties for Sale', 'Things for Sale', 'Something Else']
-  validates :title,:contact,:content, presence: true
+  POST_TYPES = ['Jobs', 'Cars for Sale', 'Properties for Sale', 'Things for Sale', 'Something Else'].freeze
+  validates :title, :contact, :content, presence: true
   validates :title, length: { maximum: 40 }
   before_save :fix_title, :replace_frags
 
   mount_uploader :postpic, PostpicUploader
-
 
   filterrific(
     default_filter_params: { sorted_by: 'created_at_desc' },
@@ -24,32 +22,31 @@ class Post < ActiveRecord::Base
   )
 
   pg_search_scope :search_query,
-    :against => [:content, :title],
-    :order_within_rank => "posts.updated_at DESC",
-  :using =>{
-    :tsearch => {:prefix => true}
-  }
+                  against: [:content, :title],
+                  order_within_rank: 'posts.updated_at DESC',
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 
   pg_search_scope :search_any_word,
-    :against => [:content, :title],
-    :order_within_rank => "posts.updated_at DESC",
-  :using =>{
-    :tsearch => {:any_word => true}
-  }
-
+                  against: [:content, :title],
+                  order_within_rank: 'posts.updated_at DESC',
+                  using: {
+                    tsearch: { any_word: true }
+                  }
 
   scope :sorted_by, lambda { |sort_option|
     # extract the sort direction from the param value.
     direction = (sort_option =~ /desc$/) ? 'desc' : 'asc'
     case sort_option.to_s
     when /^created_at_/
-      reorder("posts.created_at #{ direction }")
+      reorder("posts.created_at #{direction}")
     else
-      raise(ArgumentError, "Invalid sort option: #{ sort_option.inspect }")
+      raise(ArgumentError, "Invalid sort option: #{sort_option.inspect}")
     end
   }
   scope :post_category, lambda { |category_ids|
-    where("posts.category ilike ?", category_ids)
+    where('posts.category ilike ?', category_ids)
   }
   scope :post_date, lambda { |post_date|
     where('posts.created_at >= ?', post_date)
@@ -58,60 +55,55 @@ class Post < ActiveRecord::Base
   # This method provides select options for the `sorted_by` filter select input.
   # It is called in the controller as part of `initialize_filterrific`.
 
-
   def similar_posts
-    query= "SELECT p.id, ts_rank_cd(to_tsvector('english', p.content), replace(plainto_tsquery(original.content)::text, ' & ', ' | ')::tsquery) AS similarity
+    query = "SELECT p.id, ts_rank_cd(to_tsvector('english', p.content), replace(plainto_tsquery(original.content)::text, ' & ', ' | ')::tsquery) AS similarity
     FROM posts p,
     (SELECT content, id FROM posts WHERE id = ? LIMIT 1) AS original
     WHERE p.id != original.id
     ORDER BY similarity DESC
     LIMIT 3;"
 
-    sim_ids = Post.find_by_sql( [query,self.id] )
+    sim_ids = Post.find_by_sql([query, id])
     similar_array = Post.find(sim_ids)
-    return similar_array
+    similar_array
   end
-
-
-
 
   def self.options_for_sorted_by
     [
       ['Newest first', 'created_at_desc'],
-      ['Oldest first', 'created_at_asc'],
+      ['Oldest first', 'created_at_asc']
     ]
   end
 
   def self.options_for_post_category
-    [ ['Any' , '%'],
-      ['Things for Sale', 'Things for Sale'],
-      ['Cars for Sale', 'Cars for Sale'],
-      ['Properties for Sale', 'Properties for Sale'],
-      ['Job Vacancies', 'Jobs'],
-      ['Something Else', 'Something Else']
+    [['Any', '%'],
+     ['Things for Sale', 'Things for Sale'],
+     ['Cars for Sale', 'Cars for Sale'],
+     ['Properties for Sale', 'Properties for Sale'],
+     ['Job Vacancies', 'Jobs'],
+     ['Something Else', 'Something Else']
       ]
   end
 
   def self.options_for_post_date
-    [   ['Any' , ''],
-        ['Last week', Time.now - 7.day],
-        ['Last 2 weeks', Time.now - 14.day],
-        ['Last 30 days', Time.now - 30.day],
+    [['Any', ''],
+     ['Last week', Time.now - 7.day],
+     ['Last 2 weeks', Time.now - 14.day],
+     ['Last 30 days', Time.now - 30.day]
         ]
   end
 
   protected
 
   def fix_title
-    self.title = self.title.titleize
+    self.title = title.titleize
   end
 
   def replace_frags
-        self.content = self.content.gsub(/\/i+/,' ')
-        self.title = self.title.gsub(/\/i+/,' ')
+    self.content = content.gsub(/\/i+/, ' ')
+    self.title = title.gsub(/\/i+/, ' ')
 
-        self.content = self.content.gsub(/&amp;Amp;/,'&')
-        self.title = self.title.gsub(/&Amp;/,'&')
+    self.content = content.gsub(/&amp;Amp;/, '&')
+    self.title = title.gsub(/&Amp;/, '&')
   end
-
   end

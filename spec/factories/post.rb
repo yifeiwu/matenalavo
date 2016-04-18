@@ -1,8 +1,6 @@
 require 'faker'
 
-
 # then, whenever you need to clean the DB
-
 
 FactoryGirl.define do
   factory :post do |p|
@@ -12,7 +10,6 @@ FactoryGirl.define do
   end
 
   factory :invalid_title, parent: :post do |p|
-  p.title nil
-end
-
+    p.title nil
+  end
 end
