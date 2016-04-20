@@ -5,7 +5,6 @@ ruby '2.2.1'
 gem 'devise'
 
 gem 'friendly_id', '~> 5.1.0'
-gem 'ckeditor'
 gem 'carrierwave'
 gem 'cloudinary' # images
 gem 'pg_search' # full text search

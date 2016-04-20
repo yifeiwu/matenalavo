@@ -1,3 +1,5 @@
+<script src="//cdn.ckeditor.com/4.5.8/standard/ckeditor.js"></script>
+
 <%= form_for @post, html:{class:'form-horizontal'} do |f| %>
 <% if @post.errors.any? %>
 <div id="error_explanation">
@@ -23,7 +25,10 @@
 </div>
 <div class="field">
   <%= f.label :content %><br>
-  <%= f.cktext_area :content ,style: 'width: 100%', rows:10, :placeholder => "Your main content goes here. Please include details such as your location(Suva,Nadi,Lautoka,SavuSavu etc. You can upload pictures to flickr,imgur,photobucket etc and then use the picture tool to put the image in your ad.)"%>
+  <%= f.text_area :content ,style: 'width: 100%', name:'editor1', rows:10, :placeholder => "Your main content goes here. Please include details such as your location(Suva,Nadi,Lautoka,SavuSavu etc. You can upload pictures to flickr,imgur,photobucket etc and then use the picture tool to put the image in your ad.)"%>
+  <script>
+     CKEDITOR.replace( 'editor1' );
+  </script>
 </div>
 <hr><h5>Upload a picture</h5>
 <%= f.file_field :postpic %>
@@ -33,5 +38,4 @@
   <%= f.submit "Post my Ad", class: "btn btn-large btn-primary"%>
 </div>
 <% end %>
-<%= javascript_include_tag( "ckeditor/init" ) %>
-<%= javascript_include_tag( "ckeditor/config.js" ) %>
+
