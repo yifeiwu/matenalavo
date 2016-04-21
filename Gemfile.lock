@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/ambethia/recaptcha.git
+  revision: a903e39aeb76c939ff45fa957149318d99ccdf9a
+  specs:
+    recaptcha (1.3.0)
+      json
+
+GIT
   remote: https://github.com/DatabaseCleaner/database_cleaner.git
   revision: f318781a77228f5999f5f2371c12f59089c141f3
   specs:
@@ -320,6 +327,7 @@ DEPENDENCIES
   pg_search
   rails (= 4.2.0)
   rails_12factor
+  recaptcha!
   rspec-rails
   rubocop
   sass-rails (~> 5.0)

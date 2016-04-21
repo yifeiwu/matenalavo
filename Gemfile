@@ -4,6 +4,7 @@ ruby '2.2.1'
 
 gem 'devise'
 
+gem "recaptcha", require: "recaptcha/rails", github: "ambethia/recaptcha"
 gem 'friendly_id', '~> 5.1.0'
 gem 'carrierwave'
 gem 'cloudinary' # images
