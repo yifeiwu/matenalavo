@@ -55,13 +55,21 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
 
     respond_to do |format|
-    if verify_recaptcha(model: @post) && @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
-      else
-        format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
+        format.html {     
+          if verify_recaptcha(model: @post) && @post.save
+            redirect_to @post, notice: 'Post was successfully created.' 
+          else
+            render :new
+          end
+          }
+        format.json { 
+          if @post.save
+            render :show, status: :created, location: @post
+          else
+            render json: @post.errors, status: :unprocessable_entity
+          end 
+        }
+     
     end
   end
 
