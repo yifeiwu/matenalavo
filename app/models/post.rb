@@ -26,7 +26,7 @@ class Post < ActiveRecord::Base
                   order_within_rank: 'posts.updated_at DESC',
                   using: {
                     tsearch: { prefix: true },
-                    trigram: {}
+                    trigram: {threshold: 0.3}
                   }
 
   pg_search_scope :search_any_word,
