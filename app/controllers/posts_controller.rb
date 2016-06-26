@@ -1,19 +1,20 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
+
+
   # GET /posts
   # GET /posts.json
   def index
     # remove common words from search function results, can remove these once we upgrade from pgsearch
-    bad_words = { 'jobs' => '', 'vacancies' => '', 'vacancy' => '', 'job' => '' }
-    re = Regexp.new(bad_words.keys.map { |x| Regexp.escape(x) }.join('|'))
+    re, badwords = replace_stopwords
     if params[:filterrific] && params[:filterrific][:search_query]
-      params[:filterrific][:search_query] = params[:filterrific][:search_query].gsub(re, bad_words)
+      params[:filterrific][:search_query] = params[:filterrific][:search_query].gsub(re, badwords)
     end
     ##
     if params[:filterrific]
-      @title_string = "Searching #{params[:filterrific][:search_query]} #{params[:filterrific][:post_category]}"
-      @title_string = @title_string.delete('%')
+      @title_string = "Search for #{params[:filterrific][:search_query]} in #{params[:filterrific][:post_category]}"
+      @title_string = @title_string.gsub('%','all')
     end
 
     (@filterrific = initialize_filterrific(
@@ -89,7 +90,15 @@ class PostsController < ApplicationController
     end
   end
 
+  def replace_stopwords
+    bad_words = { 'jobs' => '', 'vacancies' => '', 'vacancy' => '', 'job' => '' }
+    re = Regexp.new(bad_words.keys.map { |x| Regexp.escape(x) }.join('|'))
+    return re, bad_words
+  end
+
   private
+
+
 
   # Use callbacks to share common setup or constraints between actions.
   def set_post

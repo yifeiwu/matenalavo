@@ -25,7 +25,8 @@ class Post < ActiveRecord::Base
                   against: [:content, :title],
                   order_within_rank: 'posts.updated_at DESC',
                   using: {
-                    tsearch: { prefix: true }
+                    tsearch: { prefix: true },
+                    trigram: {}
                   }
 
   pg_search_scope :search_any_word,
@@ -106,4 +107,7 @@ class Post < ActiveRecord::Base
     self.content = content.gsub(/&amp;Amp;/, '&')
     self.title = title.gsub(/&Amp;/, '&')
   end
+
+  
+
   end
