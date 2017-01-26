@@ -7,26 +7,8 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     # remove common words from search function results, can remove these once we upgrade from pgsearch
-    re, badwords = replace_stopwords
-    if params[:filterrific] && params[:filterrific][:search_query]
-      params[:filterrific][:search_query] = params[:filterrific][:search_query].gsub(re, badwords)
-    end
-    ##
-    if params[:filterrific]
-      @title_string = "Search for #{params[:filterrific][:search_query]} in #{params[:filterrific][:post_category]}"
-      @title_string = @title_string.gsub('%','all')
-    end
-
-    (@filterrific = initialize_filterrific(
-      Post,
-      params[:filterrific],
-      select_options: {
-        sorted_by: Post.options_for_sorted_by,
-        post_category: Post.options_for_post_category,
-        post_date: Post.options_for_post_date
-      }
-    )) || return
-    @posts = @filterrific.find.page(params[:page]).per(10)
+  
+    @posts = Post.page(params[:page]).per(10)
 
     respond_to do |format|
       format.html
@@ -98,11 +80,7 @@ class PostsController < ApplicationController
     end
   end
 
-  def replace_stopwords
-    bad_words = { 'jobs' => '', 'vacancies' => '', 'vacancy' => '', 'job' => '' }
-    re = Regexp.new(bad_words.keys.map { |x| Regexp.escape(x) }.join('|'))
-    return re, bad_words
-  end
+
 
   private
 

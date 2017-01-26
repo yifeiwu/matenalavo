@@ -8,9 +8,8 @@ gem "recaptcha", require: "recaptcha/rails", github: "ambethia/recaptcha"
 gem 'friendly_id', '~> 5.1.0'
 gem 'carrierwave'
 gem 'cloudinary' # images
-gem 'pg_search' # full text search
 gem 'kaminari' # pagination
-gem 'filterrific'
+gem 'algoliasearch-rails'
 gem 'thin', group: :development
 gem 'passenger', group: :production
 gem 'rails_12factor', group: :production
@@ -29,7 +28,6 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

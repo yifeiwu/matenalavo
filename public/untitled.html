@@ -1,20 +1,19 @@
 <!doctype html>
 <html>
 <head>
-  <title>Mate Na Lavo | {{query}}</title>
+  <title>Mate Na Lavo</title>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <!-- IE < 10 support -->
   <!--[if lte IE 9]>
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
   <![endif]-->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.css">
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => false %>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
   <!-- INTERFACE -->
   <header>
-    <a href="." title="Home"><%= image_tag 'matenalavo.com.png',size:"170x55", alt: "matenalavo.com"%></a>
     <div id="search-input"></div>
     <div id="search-input-icon"></div>
   </header>
@@ -25,6 +24,7 @@
     </div>
 
     <div id="right-column">
+      <div id="sort-by-wrapper"><span id="sort-by"></span></div>
       <div id="stats"></div>
       <div id="hits"></div>
       <div id="pagination"></div>
@@ -37,9 +37,9 @@
   <script type="text/html" id="hit-template">
     <div class="hit">
       <div class="hit-content">
+        <a href="posts/{{id}}">
         <h2 class="hit-name">{{{_highlightResult.title.value}}}</h2></a>
         <p class="hit-description">{{{_highlightResult.content.value}}}</p>
-        <h4><i>Posted at {{created_at}}</i></h4>
       </div>
     </div>
   </script>
@@ -54,7 +54,7 @@
 
   <!-- SCRIPTS -->
   <script src="//cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js"></script>
-  <%= javascript_include_tag "app.js"%>
+  <script src="app.js"></script>
   <!-- /SCRIPTS -->
 </body>
 </html>
