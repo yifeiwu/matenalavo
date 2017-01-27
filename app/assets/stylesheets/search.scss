@@ -72,11 +72,11 @@ header img {
   height: 20px;
   content: '';
   cursor: default;
-  background: url(img/search_icon.png) no-repeat;
+  background: image-url("search_icon.png") no-repeat;
 }
 #search-input-icon.empty:before {
   cursor: pointer;
-  background-image: url(img/delete_icon.png);
+  background-image: image-url("delete_icon.png");
 }
 
 /* HITS */
@@ -122,6 +122,12 @@ header img {
 }
 .hit-content .hit-description {
   color: #999;
+}
+
+.hit-content #posting_time {
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 9.75em;
 }
 
 /* PAGINATION */

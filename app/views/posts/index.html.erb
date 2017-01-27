@@ -1,60 +1,63 @@
 <!doctype html>
 <html>
-<head>
-  <title>Mate Na Lavo | {{query}}</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <!-- IE < 10 support -->
-  <!--[if lte IE 9]>
+  <head>
+    <title>Mate Na Lavo</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <!-- IE < 10 support -->
+    <!--[if lte IE 9]>
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
-  <![endif]-->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.css">
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => false %>
-</head>
-<body>
-
-  <!-- INTERFACE -->
-  <header>
-    <a href="." title="Home"><%= image_tag 'matenalavo.com.png',size:"170x55", alt: "matenalavo.com"%></a>
-    <div id="search-input"></div>
-    <div id="search-input-icon"></div>
-  </header>
-
-  <main>
+    <![endif]-->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.css">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => false %>
+  </head>
+  <body>
+    <!-- INTERFACE -->
+    <header>
+      <a href="." title="Home"><%= image_tag 'matenalavo.com.png',size:"170x50", alt: "matenalavo.com"%></a>
+      <div id="search-input"></div>
+      <div id="search-input-icon"></div>
+    </header>
+    <main>
     <div id="left-column">
+          <div class="pa3">
+          <%= link_to 'Post a free Ad', new_post_path, class: "f6 grow no-underline br-pill ph3 pv2 mb2 dib white bg-black" %>
+      </div>
       <div id="category" class="facet"></div>
     </div>
-
-    <div id="right-column">
+    <div id="right-column" >
       <div id="stats"></div>
       <div id="hits"></div>
       <div id="pagination"></div>
     </div>
-  </main>
-
-  <!-- /INTERFACE -->
-
-  <!-- TEMPLATES -->
-  <script type="text/html" id="hit-template">
+    </main>
+    <!-- /INTERFACE -->
+    <!-- TEMPLATES -->
+    <script type="text/html" id="hit-template">
     <div class="hit">
       <div class="hit-content">
-        <h2 class="hit-name">{{{_highlightResult.title.value}}}</h2></a>
-        <p class="hit-description">{{{_highlightResult.content.value}}}</p>
-        <h4><i>Posted at {{created_at}}</i></h4>
+        <article class="center mw5 mw6-ns hidden ba mv2">
+          <h1 class="f4 bg-near-black white mv0 pv2 ph3 hit-name">{{{_highlightResult.title.value}}}<a class="fr" href="posts/{{slug}}">link</a></h1>
+          <div class="pa3 bt">
+            <p class="f6 f5-ns lh-copy measure mv0 hit-description">
+              {{{_snippetResult.content.value}}}
+            </p>
+            <h4 id="posting_time"><i>Posted at {{created_at}}</i></h4>
+          </div>
+        </article>
+        
       </div>
     </div>
-  </script>
-
-  <script type="text/html" id="no-results-template">
+    </script>
+    <script type="text/html" id="no-results-template">
     <div id="no-results-message">
       <p>We didn't find any results for the search <em>"{{query}}"</em>.</p>
       <a href="." class='clear-all'>Clear search</a>
     </div>
-  </script>
-  <!-- /TEMPLATES -->
-
-  <!-- SCRIPTS -->
-  <script src="//cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js"></script>
-  <%= javascript_include_tag "app.js"%>
-  <!-- /SCRIPTS -->
-</body>
+    </script>
+    <!-- /TEMPLATES -->
+    <!-- SCRIPTS -->
+    <script src="//cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js"></script>
+    <%= javascript_include_tag "app.js"%>
+    <!-- /SCRIPTS -->
+  </body>
 </html>

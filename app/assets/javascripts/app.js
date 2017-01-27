@@ -24,7 +24,7 @@ function app(opts) {
     search.addWidget(
         instantsearch.widgets.hits({
             container: '#hits',
-            hitsPerPage: 10,
+            hitsPerPage: 5,
             templates: {
                 item: getTemplate('hit'),
                 empty: getTemplate('no-results')
@@ -53,7 +53,7 @@ function app(opts) {
             limit: 10,
             operator: 'or',
             templates: {
-                header: getHeader('Category')
+                header: getHeader('Filter')
             }
         })
     );

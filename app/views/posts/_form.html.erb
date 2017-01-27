@@ -1,3 +1,4 @@
+
 <script src="//cdn.ckeditor.com/4.5.8/standard/ckeditor.js"></script>
 
 <%= form_for @post, html:{class:'form-horizontal'} do |f| %>
@@ -36,9 +37,10 @@
 <%= recaptcha_tags %>
 
 <div class="actions" align="center">
-  <%= link_to 'Back', posts_path, class: "btn btn-large btn-default" %>
   <%= f.submit "Post my Ad", class: "btn btn-large btn-primary"%>
 </div>
+
+
 
 
 <% end %>

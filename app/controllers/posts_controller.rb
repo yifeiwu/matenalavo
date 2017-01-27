@@ -6,10 +6,6 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    # remove common words from search function results, can remove these once we upgrade from pgsearch
-  
-    @posts = Post.page(params[:page]).per(10)
-
     respond_to do |format|
       format.html
       format.js
