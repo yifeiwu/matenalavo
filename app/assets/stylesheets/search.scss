@@ -49,6 +49,9 @@ header img {
   padding: 10px 0 6px;
   border: none;
   border-bottom: 5px solid #eee;
+  background: image-url("Algolia_logo_bg-dark.svg") no-repeat;
+  background-position: top right;
+  background-color: rgb(245,245,230);
 }
 #search-input input, #search-input input:focus {
   transition: border-color .3s ease-in;
@@ -72,11 +75,9 @@ header img {
   height: 20px;
   content: '';
   cursor: default;
-  background: image-url("search_icon.png") no-repeat;
 }
 #search-input-icon.empty:before {
   cursor: pointer;
-  background-image: image-url("delete_icon.png");
 }
 
 /* HITS */
