@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
 
   friendly_id :title, use: :slugged
 
-  POST_TYPES = ['Jobs', 'Cars for Sale', 'Properties for Sale', 'Things for Sale', 'Something Else'].freeze
+  POST_TYPES = ['Jobs', 'Cars for Sale', 'Properties for Sale', 'Rent or Share', 'Things for Sale', 'Something Else'].freeze
   validates :title, :contact, :content, presence: true
   validates :title, length: { maximum: 40 }
   before_save :fix_title, :replace_frags

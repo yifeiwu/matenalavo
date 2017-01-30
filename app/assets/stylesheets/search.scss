@@ -365,3 +365,30 @@ footer a:hover {
   text-decoration: underline;
   color: #ed5565;
 }
+
+/* SM SCREENS */
+@media only screen and (max-width: 320px) {
+    #left-column, header img{
+      display: none;
+    }
+
+    #pagination li.ais-pagination--item {
+      display: none;
+    }
+
+    #pagination li.ais-pagination--item__previous, #pagination li.ais-pagination--item__active, #pagination li.ais-pagination--item__next{
+      padding: 1em;
+      font-size: 18px;
+      display: inline;
+    }
+    #search-input input{
+      margin-left:5%;
+      width:90%;
+    }
+    #right-column{
+      margin-left:8%;
+      margin-right:0%;
+      width:100%
+    }
+
+}
