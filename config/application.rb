@@ -34,5 +34,6 @@ module Fijilist
     require Rails.root.join('lib/custom_public_exceptions')
     config.exceptions_app = CustomPublicExceptions.new(Rails.public_path)
     config.active_record.raise_in_transactional_callbacks = true
+
   end
 end

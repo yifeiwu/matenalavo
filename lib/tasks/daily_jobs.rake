@@ -1,5 +1,4 @@
 # lib/tasks/daily_jobs.rake
-
 namespace :daily_jobs do
 
   task old: :environment do
@@ -14,14 +13,25 @@ namespace :daily_jobs do
     end
   end
 
-  task :uploads do
+  task :fjtimes_uploads do
     begin
-      require Rails.root.join('lib', 'scraperino_job.rb').to_s
-      ruby "scraperino_job.rb"
+      require Rails.root.join('lib', 'scraperino_job').to_s
+      s=Scraperino.new
+      s.main
     rescue => e
       puts "ERROR: #{e}"
     end # end json re
   end
 
-  task :all => [:uploads, :duplicates, :old]
+  task :harcourt_uploads do
+    begin
+      require Rails.root.join('lib', 'harcourt_scraperino_job').to_s
+      s=HarcourtScraperino.new
+      s.main
+       rescue => e
+      puts "ERROR: #{e}"
+    end # end json re
+  end
+
+  task :all_tasks => [:old, :fjtimes_uploads, :harcourt_uploads, :duplicates]
 end
