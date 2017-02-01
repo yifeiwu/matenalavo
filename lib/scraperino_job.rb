@@ -96,7 +96,7 @@ class Scraperino
   #main function
 
 
-  POST_TYPES={'Jobs'=>[3], 'Cars for Sale'=>[1], 'Properties for Sale'=>[32,33], 'Rent or Share'=>[27,26,30,34], 'Things for Sale'=>[11,12]}
+  POST_TYPES={'Cars for Sale'=>[1], 'Properties for Sale'=>[32,33], 'Rent or Share'=>[27,26,30,34], 'Things for Sale'=>[11,12], 'Jobs'=>[3]}
 
   HOST = 'http://www.matenalavo.com/posts'
   def main

@@ -33,5 +33,5 @@ namespace :daily_jobs do
     end # end json re
   end
 
-  task :all_tasks => [:old, :fjtimes_uploads, :harcourt_uploads, :duplicates]
+  task :all_tasks => [:old, :harcourt_uploads, :fjtimes_uploads, :duplicates]
 end
