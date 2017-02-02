@@ -20,7 +20,7 @@ def get_ads(full_url, category)
 
   @titles.each_with_index do |title,index|
     begin
-      content = @content_desc[index] + "\n" + "Bedrooms: " + @content_bedrooms[index]+ "\n" + "Price: " + @content_price[index]
+      content = @content_desc[index] + "<br>" + "Bedrooms: " + @content_bedrooms[index]+ "<br>" + "Price: " + @content_price[index]
       ad_upload(title, content, category)
       sleep(10)
     rescue => e
