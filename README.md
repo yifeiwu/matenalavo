@@ -15,12 +15,13 @@
 * Rails 4
 * Heroku
 
-###Featured Gems
-* Filterrific(Filtering and sorting)
+###Gems
+* ~~Filterrific(Filtering and sorting)~~
 * Kaminari(Pagination)
-* pg-search(Full Text Searching)
+* ~~pg-search(Full Text Searching)~~
 * Nokogiri(For ad aggregation)
 * Carrierwave/Cloudinary(Pic uploads and hosting)
+* Algolia search
 
 ####A live demo of this project can be seen here https://matenalavo.herokuapp.com/
 
@@ -28,8 +29,7 @@
 Need intelligent parsing of ads from local sources. 
 
 ####Misc Notes
-rake delete:old_records to remove posts older than 60 days
-
+Daily_jobs rake tasks to refresh the db.
 
 
 
