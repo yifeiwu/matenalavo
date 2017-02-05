@@ -43,7 +43,7 @@ class Scraperino
     end
 
     @titles.zip(@category_ads).each do |title, content|
-      next unless content.to_str.length > 5 #check for blanks
+      next unless content && content.to_str.length > 5 #check for blanks
       begin
         ad_upload(title, content, category)
         sleep(10)
@@ -67,8 +67,8 @@ class Scraperino
                                {:content_type => 'application/json',
                                 :accept => 'application/json'})
 
-      #puts "#{response.to_str}"
-      #puts "Response status: #{response.code}"
+    puts "#{response.to_str}"
+    puts "Response status: #{response.code}"
     rescue => e
       puts "ERROR: #{e}"
     end # end json request
